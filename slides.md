@@ -41,28 +41,28 @@ After completing the course, you will be able to:
 
 <div class="grid grid-cols-3 gap-4 mt-8">
 
-<div class="p-4 rounded-xl border course-phase-card course-phase-1">
-<h3>Phase 1: Lectures &amp; Labs <span class="course-phase-icon i-carbon:education"></span></h3>
+<div class="p-4 rounded-xl border box-card box-1">
+<h3>Phase 1: Lectures &amp; Labs <span class="box-icon i-carbon:education"></span></h3>
 
-<p>Build conceptual and technical foundations through lectures and hands-on exercises.</p>
+<div class="box-body">Build conceptual and technical foundations through lectures and hands-on exercises.</div>
 
-<p><strong>Examination:</strong> final written exam on the course content.</p>
+<div class="box-body"><strong>Examination:</strong> final written exam on the course content.</div>
 </div>
 
-<div class="p-4 rounded-xl border course-phase-card course-phase-2">
-<h3>Phase 2: Paper Analysis <span class="course-phase-icon i-carbon:search-locate"></span></h3>
+<div class="p-4 rounded-xl border box-card box-2">
+<h3>Phase 2: Paper Analysis <span class="box-icon i-carbon:search-locate"></span></h3>
 
-<p>Analyze and review recent research papers in student groups.</p>
+<div class="box-body">Analyze and review recent research papers in student groups.</div>
 
-<p><strong>Examination:</strong> pass/fail paper presentation with questions.</p>
+<div class="box-body"><strong>Examination:</strong> pass/fail paper presentation with questions.</div>
 </div>
 
-<div class="p-4 rounded-xl border course-phase-card course-phase-3">
-<h3>Phase 3: Group Projects <span class="course-phase-icon i-carbon:code"></span></h3>
+<div class="p-4 rounded-xl border box-card box-3">
+<h3>Phase 3: Group Projects <span class="box-icon i-carbon:code"></span></h3>
 
-<p>Develop code and conduct a research-oriented geospatial analysis project in groups.</p>
+<div class="box-body">Develop code and conduct a research-oriented geospatial analysis project in groups.</div>
 
-<p><strong>Examination:</strong> written project report.</p>
+<div class="box-body"><strong>Examination:</strong> written project report.</div>
 </div>
 
 </div>

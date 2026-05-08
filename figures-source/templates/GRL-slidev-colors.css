@@ -1,0 +1,35 @@
+:root {
+  /* Core Slidev/Bonn theme tokens from style.css */
+  --grl-bonn-blue: #00457c;
+  --grl-bonn-yellow: #f2c300;
+  --grl-text: #222222;
+  --grl-muted: #5f625f;
+  --grl-rule: #d7d9d8;
+  --grl-background: #ffffff;
+  --grl-panel: #f7f9fa;
+  --grl-cover-background: #eef2f4;
+  --grl-cover-background-deep: #dce4e8;
+
+  /* Figure accents already used by course figure components */
+  --grl-figure-blue-dark: #035172;
+  --grl-data-cyan: #5ec8ec;
+  --grl-data-cyan-soft: #b9dcf0;
+  --grl-data-orange: #ff7900;
+  --grl-data-orange-soft: #ffc891;
+  --grl-data-green: #2eb82e;
+  --grl-data-green-soft: #a9e5aa;
+  --grl-link-red: #ff7378;
+
+  /* Model/application accents from reusable figure components */
+  --grl-model-blue: #3b82f6;
+  --grl-application-green: #10b981;
+  --grl-warning-orange: #f59e0b;
+  --grl-foundation-purple: #8b5cf6;
+  --grl-phase-red: #b02b37;
+
+  /* Recommended figure defaults */
+  --grl-font-sans: Arial, Helvetica, sans-serif;
+  --grl-radius-slide: 4px;
+  --grl-radius-figure: 8px;
+  --grl-shadow-soft: 0 8px 18px rgba(0, 69, 124, 0.08);
+}

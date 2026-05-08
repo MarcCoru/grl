@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "slidev slides.md",
     "dev:course-overview": "slidev slides.md",
+    "dev:illustrations": "slidev slides/0-illustration-workbench/slides.md",
     "build": "node scripts/build-site.mjs",
     "export": "slidev export slides.md"
   },

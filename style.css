@@ -16,6 +16,22 @@
   letter-spacing: 0;
 }
 
+.slidev-layout.bonn-layout .text-blue-800 {
+  color: var(--bonn-blue) !important;
+}
+
+.slidev-layout.bonn-layout .compact-math .slidev-katex-wrapper p {
+  margin: .12rem 0;
+}
+
+.slidev-layout.bonn-layout .compact-math .katex-display {
+  margin: .15em 0;
+}
+
+.slidev-layout.bonn-layout .compact-math .katex {
+  font-size: .94em;
+}
+
 .slidev-layout.bonn-layout::before {
   content: "";
   position: absolute;
@@ -28,7 +44,8 @@
 }
 
 .bonn-content {
-  position: relative;
+  /* Keep Slidev v-drag elements positioned against the slide, not the padded content box. */
+  position: static;
   z-index: 2;
   height: 100%;
   padding: 48px 72px 58px;
@@ -97,8 +114,36 @@
   padding-left: 1rem;
   border-left: 5px solid var(--bonn-yellow);
   color: var(--bonn-blue);
-  font-size: 1.1rem;
+  font-size: .95rem;
   font-weight: 600;
+}
+
+.slide-citation {
+  position: absolute;
+  right: 72px;
+  bottom: 44px;
+  left: 72px;
+  z-index: 3;
+  color: var(--bonn-muted);
+  font-size: .46rem;
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.slide-citation a {
+  color: var(--bonn-blue);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.slide-citation a:hover,
+.slide-citation a:focus-visible {
+  color: var(--bonn-blue);
+  text-decoration: underline;
+  text-decoration-color: var(--bonn-yellow);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
+  outline: none;
 }
 
 .bonn-content .border {
@@ -109,13 +154,13 @@
   border-radius: 4px;
 }
 
-.course-phase-card {
+.box-card {
   min-height: 13.2rem;
   border-right: 5px solid var(--bonn-blue) !important;
   background: #ffffff;
 }
 
-.course-phase-icon {
+.box-icon {
   display: inline-block;
   width: 1.05rem;
   height: 1.05rem;
@@ -124,18 +169,28 @@
   color: var(--bonn-blue);
 }
 
+.box-body {
+  margin-top: .7rem;
+  color: var(--bonn-text);
+  font-size: .82rem;
+  line-height: 1.38;
+}
+
+.box-1,
 .course-phase-1 {
   border-color: rgba(0, 75, 135, .26) !important;
   border-right-color: var(--bonn-blue) !important;
   background: rgba(0, 75, 135, .045);
 }
 
+.box-2,
 .course-phase-2 {
   border-color: rgba(242, 195, 0, .42) !important;
   border-right-color: var(--bonn-yellow) !important;
   background: rgba(242, 195, 0, .1);
 }
 
+.box-3,
 .course-phase-3 {
   border-color: rgba(176, 43, 55, .32) !important;
   border-right-color: #b02b37 !important;
@@ -446,4 +501,68 @@ a.phase-content-tile:focus-visible {
   z-index: 3;
   width: 98px;
   height: auto;
+}
+
+.bonn-section-nav {
+  position: absolute;
+  right: 144px;
+  bottom: 22px;
+  left: 72px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: .42rem;
+  overflow: hidden;
+  color: var(--bonn-muted);
+  font-size: .38rem;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.bonn-section-nav-item {
+  position: relative;
+  flex: 0 1 auto;
+  min-width: 0;
+  max-width: 8.2rem;
+  overflow: hidden;
+  padding: .12rem 0 .18rem;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  letter-spacing: 0;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  opacity: .58;
+  transition: color .16s ease, opacity .16s ease;
+}
+
+.bonn-section-nav-item::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background: transparent;
+}
+
+.bonn-section-nav-item:hover,
+.bonn-section-nav-item:focus-visible {
+  color: var(--bonn-blue);
+  opacity: .9;
+  outline: none;
+}
+
+.bonn-section-nav-item.is-active {
+  color: var(--bonn-blue);
+  opacity: 1;
+}
+
+.bonn-section-nav-item.is-active::after {
+  background: var(--bonn-yellow);
 }

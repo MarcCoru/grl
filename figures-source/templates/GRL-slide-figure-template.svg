@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="1600"
+  height="900"
+  viewBox="0 0 1600 900"
+  version="1.1"
+  id="GRL-slide-figure-template">
+  <title>GRL slide figure template</title>
+  <desc>Adobe Illustrator-compatible SVG template for Geospatial Representation Learning Slidev figures.</desc>
+
+  <defs>
+    <style>
+      .font-sans { font-family: Arial, Helvetica, sans-serif; letter-spacing: 0; }
+      .title { font-size: 52px; font-weight: 700; fill: #00457c; }
+      .subtitle { font-size: 28px; font-weight: 600; fill: #5f625f; }
+      .body { font-size: 23px; font-weight: 400; fill: #222222; }
+      .label { font-size: 18px; font-weight: 700; fill: #5f625f; text-transform: uppercase; }
+      .small { font-size: 16px; font-weight: 600; fill: #5f625f; }
+      .card-title { font-size: 22px; font-weight: 800; fill: #00457c; }
+      .card-copy { font-size: 17px; font-weight: 400; fill: #5f625f; }
+      .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+    </style>
+  </defs>
+
+  <!-- background: white Slidev content background plus the Bonn yellow vertical cue used by the deck layout. -->
+  <g id="background">
+    <rect id="artboard-background" x="0" y="0" width="1600" height="900" fill="#ffffff"/>
+    <rect id="bonn-yellow-layout-bar" x="0" y="183" width="12" height="192" fill="#f2c300"/>
+  </g>
+
+  <!-- safe-margin: visible non-printing-style guide that mirrors the deck's padded content area. Hide before final export if unwanted. -->
+  <g id="safe-margin">
+    <rect id="slide-safe-area" x="116" y="78" width="1368" height="724" fill="none" stroke="#f2c300" stroke-width="2" stroke-dasharray="14 10"/>
+    <text id="safe-margin-label" class="font-sans small" x="130" y="108">slide-safe margin guide</text>
+  </g>
+
+  <!-- figure-content: editable placeholder composition for the main figure. Replace these objects with course figures. -->
+  <g id="figure-content">
+    <text id="figure-title-sample" class="font-sans title" x="136" y="170">Figure title 52 px</text>
+    <text id="figure-subtitle-sample" class="font-sans subtitle" x="136" y="216">Subtitle or figure question 28 px</text>
+
+    <g id="sample-pipeline" transform="translate(136 286)">
+      <g id="geospatial-data-node">
+        <rect x="0" y="10" width="292" height="152" rx="8" fill="#f2fbff"/>
+        <rect x="0" y="10" width="292" height="152" rx="8" fill="none" stroke="#5ec8ec" stroke-width="2"/>
+        <rect x="0" y="10" width="7" height="152" fill="#5ec8ec"/>
+        <text class="font-sans card-title" x="28" y="58">Geospatial data</text>
+        <text class="font-sans card-copy" x="28" y="94">imagery, maps, time</text>
+        <text class="font-sans mono small" x="28" y="124">x = [lat, lon, t]</text>
+      </g>
+
+      <g id="data-to-model-arrow" transform="translate(318 74)">
+        <line x1="0" y1="0" x2="170" y2="0" stroke="#00457c" stroke-width="5" stroke-linecap="round"/>
+        <path d="M170 0 L146 -15 L146 15 Z" fill="#00457c"/>
+        <text class="font-sans small" x="47" y="-18">encode</text>
+      </g>
+
+      <g id="ai-model-node" transform="translate(516 0)">
+        <rect x="0" y="0" width="292" height="172" rx="8" fill="#f5f8ff"/>
+        <rect x="0" y="0" width="292" height="172" rx="8" fill="none" stroke="#3b82f6" stroke-width="2"/>
+        <rect x="0" y="0" width="292" height="9" fill="#3b82f6"/>
+        <circle cx="58" cy="74" r="28" fill="#e8f0ff" stroke="#3b82f6" stroke-width="2"/>
+        <text class="font-sans card-title" x="104" y="62">AI / model</text>
+        <text class="font-sans card-copy" x="104" y="94">learned representation</text>
+        <text class="font-sans mono small" x="104" y="124">z = fθ(x)</text>
+      </g>
+
+      <g id="model-to-application-arrow" transform="translate(834 74)">
+        <line x1="0" y1="0" x2="170" y2="0" stroke="#00457c" stroke-width="5" stroke-linecap="round"/>
+        <path d="M170 0 L146 -15 L146 15 Z" fill="#00457c"/>
+        <text class="font-sans small" x="45" y="-18">predict</text>
+      </g>
+
+      <g id="application-node" transform="translate(1032 10)">
+        <rect x="0" y="10" width="292" height="152" rx="8" fill="#f3fcf8"/>
+        <rect x="0" y="10" width="292" height="152" rx="8" fill="none" stroke="#10b981" stroke-width="2"/>
+        <rect x="285" y="10" width="7" height="152" fill="#10b981"/>
+        <text class="font-sans card-title" x="28" y="58">Application</text>
+        <text class="font-sans card-copy" x="28" y="94">retrieval, prediction</text>
+        <text class="font-sans mono small" x="28" y="124">ŷ = g(z)</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- labels: reusable text-size labels. Keep these as editable text when opening in Illustrator. -->
+  <g id="labels">
+    <text id="body-size-sample" class="font-sans body" x="136" y="535">Body text 23 px: concise explanatory sentence or axis annotation.</text>
+    <text id="small-label-size-sample" class="font-sans label" x="136" y="574">SMALL LABEL 18 PX</text>
+  </g>
+
+  <!-- style-samples: sample strip using deck colors, radii, borders, chips, arrows, and concept accents. -->
+  <g id="style-samples">
+    <text id="style-samples-heading" class="font-sans label" x="136" y="660">Style samples</text>
+
+    <g id="sample-card" transform="translate(136 692)">
+      <rect x="4" y="8" width="184" height="86" rx="8" fill="#00457c" opacity="0.08"/>
+      <rect x="0" y="0" width="184" height="86" rx="8" fill="#ffffff" stroke="#d7d9d8" stroke-width="2"/>
+      <rect x="0" y="0" width="184" height="6" fill="#00457c"/>
+      <text class="font-sans card-title" x="18" y="34">card</text>
+      <text class="font-sans card-copy" x="18" y="61">white, 8 px radius</text>
+    </g>
+
+    <g id="sample-chip" transform="translate(348 718)">
+      <rect x="0" y="0" width="124" height="34" rx="17" fill="#f7f9fa" stroke="#d7d9d8" stroke-width="2"/>
+      <text class="font-sans label" x="62" y="23" text-anchor="middle">chip</text>
+    </g>
+
+    <g id="sample-arrow" transform="translate(512 735)">
+      <line x1="0" y1="0" x2="136" y2="0" stroke="#00457c" stroke-width="5" stroke-linecap="round"/>
+      <path d="M136 0 L114 -14 L114 14 Z" fill="#00457c"/>
+      <text class="font-sans small" x="36" y="-18">arrow</text>
+    </g>
+
+    <g id="sample-muted-label" transform="translate(690 718)">
+      <text class="font-sans label" x="0" y="23">muted label</text>
+      <line x1="0" y1="34" x2="128" y2="34" stroke="#f2c300" stroke-width="4"/>
+    </g>
+
+    <g id="sample-geospatial-data-accent" transform="translate(850 698)">
+      <rect x="0" y="0" width="146" height="70" rx="8" fill="#f2fbff" stroke="#5ec8ec" stroke-width="2"/>
+      <text class="font-sans small" x="73" y="30" text-anchor="middle" fill="#035172">geospatial</text>
+      <text class="font-sans small" x="73" y="52" text-anchor="middle" fill="#035172">data</text>
+    </g>
+
+    <g id="sample-ai-model-accent" transform="translate(1018 698)">
+      <rect x="0" y="0" width="146" height="70" rx="8" fill="#f5f8ff" stroke="#3b82f6" stroke-width="2"/>
+      <text class="font-sans small" x="73" y="30" text-anchor="middle" fill="#00457c">AI /</text>
+      <text class="font-sans small" x="73" y="52" text-anchor="middle" fill="#00457c">model</text>
+    </g>
+
+    <g id="sample-application-accent" transform="translate(1186 698)">
+      <rect x="0" y="0" width="146" height="70" rx="8" fill="#f3fcf8" stroke="#10b981" stroke-width="2"/>
+      <text class="font-sans small" x="73" y="42" text-anchor="middle" fill="#0b7556">application</text>
+    </g>
+
+    <g id="sample-human-intuition-accent" transform="translate(1354 698)">
+      <rect x="0" y="0" width="146" height="70" rx="8" fill="#fff8e2" stroke="#f2c300" stroke-width="2"/>
+      <text class="font-sans small" x="73" y="30" text-anchor="middle" fill="#5f625f">human</text>
+      <text class="font-sans small" x="73" y="52" text-anchor="middle" fill="#5f625f">intuition</text>
+    </g>
+  </g>
+
+  <!-- export-notes: delete or hide before final figure export. Kept inside the artboard so Illustrator users see the intended workflow. -->
+  <g id="export-notes">
+    <rect x="116" y="826" width="1368" height="40" rx="4" fill="#f7f9fa" stroke="#d7d9d8" stroke-width="1"/>
+    <text class="font-sans small" x="136" y="852">
+      Hide safe-margin and export-notes before final SVG export. Keep text editable while designing; outline fonts only for external distribution if needed.
+    </text>
+  </g>
+</svg>
