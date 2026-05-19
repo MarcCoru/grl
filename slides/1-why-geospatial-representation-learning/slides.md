@@ -9,7 +9,7 @@ home: ../
 ---
 
 <script setup>
-import AppleMatrixRepresentation from './components/AppleMatrixRepresentation.vue'
+import Lecture1AppleMatrixRepresentation from './components/Lecture1AppleMatrixRepresentation.vue'
 import SoftmaxCosineDemo from './components/SoftmaxCosineDemo.vue'
 import AutoregressiveNextTokenDemo from './components/AutoregressiveNextTokenDemo.vue'
 </script>
@@ -218,7 +218,7 @@ sectionTitle: Representations of our World
 <div class="mt-8 grid grid-cols-3 gap-5">
   <div class="min-h-[300px] rounded-xl border p-4">
     <h3>Images</h3>
-    <AppleMatrixRepresentation :click-index="1" />
+    <Lecture1AppleMatrixRepresentation :click-index="1" />
   </div>
 
   <div class="min-h-[300px] rounded-xl border p-4">

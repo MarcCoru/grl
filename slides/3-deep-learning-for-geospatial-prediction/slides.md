@@ -8,16 +8,6 @@ subhead: Lecture 3
 home: ../
 ---
 
-<script setup>
-import ArrowLabel from './components/ArrowLabel.vue'
-import BadgeLabel from './components/BadgeLabel.vue'
-import ConnectorDot from './components/ConnectorDot.vue'
-import FormulaBox from './components/FormulaBox.vue'
-import LatentVector from './components/LatentVector.vue'
-import ModelBlock from './components/ModelBlock.vue'
-import TensorBox from './components/TensorBox.vue'
-</script>
-
 # Machine Learning & Deep Learning Foundations
 
 ## Geospatial Representation Learning
@@ -84,23 +74,23 @@ dragPos:
 
 This slide is a sandbox for reusable draggable figure elements.
 
-<TensorBox v-drag="'test-input-tensor'" label="Input Image" shape="[H × W × 13]" icon="🛰️" variant="input" caption="Sentinel-2 patch" />
+<Lecture3TensorBox v-drag="'test-input-tensor'" label="Input Image" shape="[H × W × 13]" icon="🛰️" variant="input" caption="Sentinel-2 patch" />
 
-<ArrowLabel v-drag="'test-arrow-encode'" label="encode" />
+<Lecture3ArrowLabel v-drag="'test-arrow-encode'" label="encode" />
 
-<ModelBlock v-drag="'test-encoder'" title="Encoder" subtitle="fθ" icon="🧠" variant="encoder" :chips="['Conv', 'ReLU', 'Pool']" />
+<Lecture3ModelBlock v-drag="'test-encoder'" title="Encoder" subtitle="fθ" icon="🧠" variant="encoder" :chips="['Conv', 'ReLU', 'Pool']" />
 
-<ArrowLabel v-drag="'test-arrow-z'" label="embedding" />
+<Lecture3ArrowLabel v-drag="'test-arrow-z'" label="embedding" />
 
-<LatentVector v-drag="'test-latent-vector'" label="z" :length="10" caption="learned representation" variant="latent" />
+<Lecture3LatentVector v-drag="'test-latent-vector'" label="z" :length="10" caption="learned representation" variant="latent" />
 
-<FormulaBox v-drag="'test-formula'" label="Model" formula="z = fθ(x)" caption="plain text formula box" />
+<Lecture3FormulaBox v-drag="'test-formula'" label="Model" formula="z = fθ(x)" caption="plain text formula box" />
 
-<BadgeLabel v-drag="'test-badge'" text="v-drag test" variant="accent" />
+<Lecture3BadgeLabel v-drag="'test-badge'" text="v-drag test" variant="accent" />
 
-<ConnectorDot v-drag="'test-node-x'" label="x" />
+<Lecture3ConnectorDot v-drag="'test-node-x'" label="x" />
 
-<ConnectorDot v-drag="'test-node-z'" label="z" variant="accent" />
+<Lecture3ConnectorDot v-drag="'test-node-z'" label="z" variant="accent" />
 
 ---
 
