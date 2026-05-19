@@ -8,6 +8,16 @@ subhead: Lecture 3
 home: ../
 ---
 
+<script setup>
+import ArrowLabel from './components/ArrowLabel.vue'
+import BadgeLabel from './components/BadgeLabel.vue'
+import ConnectorDot from './components/ConnectorDot.vue'
+import FormulaBox from './components/FormulaBox.vue'
+import LatentVector from './components/LatentVector.vue'
+import ModelBlock from './components/ModelBlock.vue'
+import TensorBox from './components/TensorBox.vue'
+</script>
+
 # Machine Learning & Deep Learning Foundations
 
 ## Geospatial Representation Learning

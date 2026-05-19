@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 863.22 484.5">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke-dasharray: 11.97 11.97;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8 {
+        fill: none;
+        stroke: #6b6b6b;
+        stroke-miterlimit: 10;
+        stroke-width: 2px;
+      }
+
+      .cls-9 {
+        fill: #dff4df;
+      }
+
+      .cls-2 {
+        stroke-dasharray: 11.61 11.61;
+      }
+
+      .cls-10 {
+        font-family: Arial-BoldMT, Arial;
+        font-weight: 700;
+      }
+
+      .cls-10, .cls-11 {
+        fill: #00457c;
+        font-size: 34px;
+        isolation: isolate;
+      }
+
+      .cls-11 {
+        font-family: ArialMT, Arial;
+      }
+
+      .cls-4 {
+        stroke-dasharray: 12.41 12.41;
+      }
+
+      .cls-5 {
+        stroke-dasharray: 12.06 12.06;
+      }
+
+      .cls-12 {
+        fill: #ffe9d8;
+      }
+
+      .cls-13 {
+        opacity: .69;
+      }
+
+      .cls-14 {
+        fill: #a3a3a3;
+      }
+
+      .cls-6 {
+        stroke-dasharray: 11.46 11.46;
+      }
+
+      .cls-15 {
+        fill: #24b436;
+      }
+
+      .cls-16 {
+        fill: #ff7300;
+      }
+
+      .cls-7 {
+        stroke-dasharray: 11.82 11.82;
+      }
+
+      .cls-8 {
+        stroke-dasharray: 12.16 12.16;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1" data-name="Layer 1">
+    <path class="cls-9" d="M38.97,0h523.05c21.53,0,38.97,15.45,38.97,34.5h0c0,19.05-17.45,34.5-38.97,34.5H38.97C17.45,69,0,53.55,0,34.5h0C0,15.45,17.45,0,38.97,0Z"/>
+    <text class="cls-10" transform="translate(26 43)"><tspan x="0" y="0">similar meaning → nearby vectors</tspan></text>
+    <circle class="cls-15" cx="124" cy="157" r="12.5"/>
+    <text class="cls-11" transform="translate(136.5 134.05)"><tspan x="0" y="0">strawberry</tspan></text>
+    <circle class="cls-15" cx="297" cy="181" r="12.5"/>
+    <text class="cls-11" transform="translate(323.12 175.14)"><tspan x="0" y="0">orange</tspan></text>
+    <circle class="cls-15" cx="211" cy="234" r="12.5"/>
+    <text class="cls-11" transform="translate(103.34 252.14)"><tspan x="0" y="0">apple</tspan></text>
+    <circle class="cls-15" cx="143" cy="308" r="12.5"/>
+    <text class="cls-11" transform="translate(147.96 353.35)"><tspan x="0" y="0">banana</tspan></text>
+    <circle class="cls-16" cx="620" cy="77" r="12.5"/>
+    <text class="cls-11" transform="translate(645 88)"><tspan x="0" y="0">airplane</tspan></text>
+    <circle class="cls-16" cx="525.12" cy="234" r="12.5"/>
+    <text class="cls-11" transform="translate(546.84 245)"><tspan x="0" y="0">democracy</tspan></text>
+    <circle class="cls-16" cx="682" cy="360" r="12.5"/>
+    <text class="cls-11" transform="translate(707 371)"><tspan x="0" y="0">volcano</tspan></text>
+    <path class="cls-12" d="M314.38,415.5h509.68c21.63,0,39.16,15.45,39.16,34.5h0c0,19.05-17.53,34.5-39.16,34.5h-509.68c-21.63,0-39.16-15.45-39.16-34.5h0c0-19.05,17.53-34.5,39.16-34.5Z"/>
+    <text class="cls-10" transform="translate(300.22 459.5)"><tspan x="0" y="0">different meaning → farther apart</tspan></text>
+  </g>
+  <g id="Vectors">
+    <g class="cls-13">
+      <line class="cls-14" x1="426.43" y1="239.46" x2="678" y2="360"/>
+      <g>
+        <line class="cls-3" x1="426.43" y1="239.46" x2="431.85" y2="242.06"/>
+        <line class="cls-2" x1="442.31" y1="247.07" x2="667.36" y2="354.9"/>
+        <line class="cls-3" x1="672.59" y1="357.41" x2="678" y2="360"/>
+      </g>
+    </g>
+    <g class="cls-13">
+      <path class="cls-14" d="M426.43,239.46c32.9-1.82,65.79-3.64,98.69-5.46"/>
+      <g>
+        <path class="cls-3" d="M426.43,239.46c2-.11,3.99-.22,5.99-.33"/>
+        <path class="cls-4" d="M444.81,238.45c22.71-1.26,45.42-2.51,68.13-3.77"/>
+        <path class="cls-3" d="M519.13,234.33c2-.11,3.99-.22,5.99-.33"/>
+      </g>
+    </g>
+    <g class="cls-13">
+      <path class="cls-14" d="M426.43,239.46c64.52-54.15,129.04-108.31,193.57-162.46"/>
+      <g>
+        <path class="cls-3" d="M426.43,239.46c1.53-1.29,3.06-2.57,4.6-3.86"/>
+        <path class="cls-6" d="M439.81,228.24c57.07-47.9,114.14-95.8,171.2-143.7"/>
+        <path class="cls-3" d="M615.4,80.86c1.53-1.29,3.06-2.57,4.6-3.86"/>
+      </g>
+    </g>
+    <g class="cls-13">
+      <path class="cls-14" d="M426.43,239.46c-71.81-1.82-143.62-3.64-215.43-5.46"/>
+      <g>
+        <path class="cls-3" d="M426.43,239.46c-2-.05-4-.1-6-.15"/>
+        <path class="cls-1" d="M408.47,239.01c-61.83-1.57-123.66-3.14-185.49-4.7"/>
+        <path class="cls-3" d="M217,234.15c-2-.05-4-.1-6-.15"/>
+      </g>
+    </g>
+    <g class="cls-13">
+      <path class="cls-14" d="M426.43,239.46c-94.48,22.85-188.96,45.69-283.43,68.54"/>
+      <g>
+        <path class="cls-3" d="M426.43,239.46c-1.94.47-3.89.94-5.83,1.41"/>
+        <path class="cls-8" d="M408.79,243.73c-84.68,20.48-169.36,40.95-254.05,61.43"/>
+        <path class="cls-3" d="M148.83,306.59c-1.94.47-3.89.94-5.83,1.41"/>
+      </g>
+    </g>
+    <g class="cls-13">
+      <path class="cls-14" d="M297,181c43.14,19.49,86.29,38.98,129.43,58.46"/>
+      <g>
+        <path class="cls-3" d="M297,181c1.82.82,3.65,1.65,5.47,2.47"/>
+        <path class="cls-7" d="M313.24,188.34c34.11,15.41,68.23,30.82,102.34,46.23"/>
+        <path class="cls-3" d="M420.97,236.99c1.82.82,3.65,1.65,5.47,2.47"/>
+      </g>
+    </g>
+    <g class="cls-13">
+      <path class="cls-14" d="M124,157l302.43,82.46"/>
+      <g>
+        <path class="cls-3" d="M124,157c1.93.53,3.86,1.05,5.79,1.58"/>
+        <path class="cls-5" d="M141.42,161.75c91.14,24.85,182.27,49.7,273.41,74.55"/>
+        <path class="cls-3" d="M420.65,237.89c1.93.53,3.86,1.05,5.79,1.58"/>
+      </g>
+    </g>
+  </g>
+</svg>

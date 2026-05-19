@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 863.22 484.5">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #dff4df;
+      }
+
+      .cls-2 {
+        font-family: Arial-BoldMT, Arial;
+        font-weight: 700;
+      }
+
+      .cls-2, .cls-3 {
+        fill: #00457c;
+        font-size: 34px;
+        isolation: isolate;
+      }
+
+      .cls-3 {
+        font-family: ArialMT, Arial;
+      }
+
+      .cls-4 {
+        fill: #ffe9d8;
+      }
+
+      .cls-5 {
+        fill: #24b436;
+      }
+
+      .cls-6 {
+        fill: #ff7300;
+      }
+    </style>
+  </defs>
+  <path class="cls-1" d="M38.97,0h523.05c21.53,0,38.97,15.45,38.97,34.5h0c0,19.05-17.45,34.5-38.97,34.5H38.97C17.45,69,0,53.55,0,34.5h0C0,15.45,17.45,0,38.97,0Z"/>
+  <text class="cls-2" transform="translate(26 43)"><tspan x="0" y="0">similar meaning → nearby vectors</tspan></text>
+  <circle class="cls-5" cx="124" cy="157" r="12.5"/>
+  <text class="cls-3" transform="translate(136.5 134.05)"><tspan x="0" y="0">strawberry</tspan></text>
+  <circle class="cls-5" cx="297" cy="181" r="12.5"/>
+  <text class="cls-3" transform="translate(323.12 175.14)"><tspan x="0" y="0">orange</tspan></text>
+  <circle class="cls-5" cx="211" cy="234" r="12.5"/>
+  <text class="cls-3" transform="translate(103.34 252.14)"><tspan x="0" y="0">apple</tspan></text>
+  <circle class="cls-5" cx="143" cy="308" r="12.5"/>
+  <text class="cls-3" transform="translate(147.96 353.35)"><tspan x="0" y="0">banana</tspan></text>
+  <circle class="cls-6" cx="620" cy="77" r="12.5"/>
+  <text class="cls-3" transform="translate(645 88)"><tspan x="0" y="0">airplane</tspan></text>
+  <circle class="cls-6" cx="525.12" cy="234" r="12.5"/>
+  <text class="cls-3" transform="translate(546.84 245)"><tspan x="0" y="0">democracy</tspan></text>
+  <circle class="cls-6" cx="682" cy="360" r="12.5"/>
+  <text class="cls-3" transform="translate(707 371)"><tspan x="0" y="0">volcano</tspan></text>
+  <path class="cls-4" d="M314.38,415.5h509.68c21.63,0,39.16,15.45,39.16,34.5h0c0,19.05-17.53,34.5-39.16,34.5h-509.68c-21.63,0-39.16-15.45-39.16-34.5h0c0-19.05,17.53-34.5,39.16-34.5Z"/>
+  <text class="cls-2" transform="translate(300.22 459.5)"><tspan x="0" y="0">different meaning → farther apart</tspan></text>
+</svg>

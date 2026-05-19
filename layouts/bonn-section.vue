@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import logoUrl from '../assets/uni-bonn-logo.png'
-import BonnSectionNav from '../components/BonnSectionNav.vue'
+import BonnSectionNav from './BonnSectionNav.vue'
 
 const props = defineProps<{
   sectionColor?: string

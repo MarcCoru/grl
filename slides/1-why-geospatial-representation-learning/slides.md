@@ -9,63 +9,170 @@ home: ../
 ---
 
 <script setup>
-import AppleMatrixRepresentation from '../../components/AppleMatrixRepresentation.vue'
+import AppleMatrixRepresentation from './components/AppleMatrixRepresentation.vue'
+import SoftmaxCosineDemo from './components/SoftmaxCosineDemo.vue'
+import AutoregressiveNextTokenDemo from './components/AutoregressiveNextTokenDemo.vue'
 </script>
 
 # Geospatial Representation Learning
 
 <div class="mt-8 text-xl text-gray-600 font-semibold">
-Lecture 1
+Introduction to Geospatial Representations
 </div>
 
+<!--
+Welcome to the first lecture on geospatial representation learning.
+-->
+
 ---
-section: opening
-sectionTitle: Opening
+section: Representations of our World
+sectionTitle: Representations of our World
 ---
 
-# Let's think about an Apple
+# Lecture Outline
 
-### 
+<div class="grid grid-cols-4 gap-4 mt-8">
+
+<div class="p-4 rounded-xl border box-card box-1">
+<h3>Representations</h3>
+<img
+  src="./figures/apple_image_world.jpg"
+  class="mt-3 h-[118px] w-full object-contain rounded"
+  alt="An image of an apple"
+/>
+<div class="box-body">What are representations?</div>
+</div>
+
+<div class="p-4 rounded-xl border box-card box-2" v-click>
+<h3>Mental Maps</h3>
+<img
+  src="./figures/mentalmap.jpeg"
+  class="mt-3 h-[118px] w-full object-contain rounded"
+  alt="Mental map illustration"
+/>
+<div class="box-body">Our inherent spatial understanding</div>
+</div>
+
+<div class="p-4 rounded-xl border box-card box-3" v-click>
+<h3>Geospatial data</h3>
+<img
+  src="./figures/gis.png"
+  class="mt-3 h-[118px] w-full object-contain rounded"
+  alt="Geospatial database illustration"
+/>
+<div class="box-body">What do we measure on Earth?</div>
+</div>
+
+<div class="p-4 rounded-xl border box-card box-4" v-click>
+<h3>Neural Nets</h3>
+<img
+  src="./figures/neuralgeorepresentation.svg"
+  class="mt-3 h-[118px] w-full object-contain rounded"
+  alt="Neural geospatial representation illustration"
+/>
+<div class="box-body">How do Neural Nets learn spatial representations.</div>
+</div>
+
+</div>
+
+<div class="slide-citation">
+  <a href="https://www.sueddeutsche.de/muenchen/mental-maps-die-stadt-in-meinem-kopf-1.3087218" target="_blank" rel="noopener noreferrer">
+    Die Stadt in meinem Kopf. (2016). <em>Süddeutsche Zeitung</em>.
+  </a>
+</div>
+
+<!--
+We will cover four sections:
+
+First, we will talk about representations in general. We will look at how we perceive the world, how we encode objects, and how representations carry meaning.
+[click]
+Second, we focus on our geospatial understanding of the environment. We will ask what happens when we think about a place or location, and what environmentally or economically useful information our representations capture.
+[click]
+Third, we look at geospatial representations from a data perspective. What data do we actually capture about the world?
+[click] 
+Finally, we will briefly discuss how neural networks can learn increasingly complex representations. That will give us a roadmap for the rest of the course.
+-->
+
+---
+layout: bonn-section
+sectionColor: "#00457c"
+section: Representations of our World
+sectionTitle: Representations of our World
+---
+
+# Representations of our World
+
+<img src="./figures/apple_image_world.jpg" alt="An image of an Apple" />
+
+<div class="bonn-section-citation">
+<a href="https://de.wikipedia.org/wiki/Datei:Pink_lady_and_cross_section.jpg" target="_blank" rel="noopener noreferrer">
+Apple by Fir0002/Flagstaffotos license CC-BY-NC, world added via ChatGPT
+</a>
+</div>
+
+<!--
+Let's start with representations of our world. What do you think of when you see this image?
+
+It is Earth inside an apple. Two concepts that do not really fit together. One is thousands of kilometers across; the other fits in our hand. One is a blue planet; the other is a red fruit.
+
+We associate very different ideas with Earth and with an apple: different sizes, colors, shapes, and meanings. But on this screen, we are only seeing pixels. It is an image: a matrix of numbers translated into red, green, and blue light. The meaning comes from our own understanding and perception of the world. A large part of that is learned.
+
+So I want to start with a small game.
+-->
+
+---
+section: Representations of our World
+sectionTitle: Representations of our World
+---
+
+# Describe an Apple.
+
+## Meaning and Encoding of Representations
 
 <div class="mt-5 grid h-[310px] grid-cols-[550px_minmax(220px,280px)] gap-3 items-stretch justify-start">
   <div class="relative h-[310px] w-[550px] justify-self-start">
-    <img v-click="1"
+    <img 
       src="./figures/apple/00-baselayer.svg"
       class="absolute inset-0 h-full w-full object-contain"
       alt="Apple base layer"
     />
-    <img v-click="2"
+    <img 
       src="./figures/apple/01-SVG.svg"
       class="absolute inset-0 h-full w-full object-contain"
       alt="Apple SVG representation layer"
     />
-    <img v-click="3"
+    <img 
       src="./figures/apple/02-raster.svg"
       class="absolute inset-0 h-full w-full object-contain"
       alt="Apple raster representation layer"
     />
-    <img v-click="4"
+    <img 
       src="./figures/apple/03-text.svg"
       class="absolute inset-0 h-full w-full object-contain"
       alt="Apple text representation layer"
     />
-    <img v-click="6"
+    <img v-click="1"
       src="./figures/apple/04-newton.svg"
       class="absolute inset-0 h-full w-full object-contain"
       alt="Apple Newton representation layer"
     />
-    <img v-click="7"
+    <img v-click="2"
       src="./figures/apple/05-Computers.svg"
       class="absolute inset-0 h-full w-full object-contain"
       alt="Apple computers representation layer"
     />
-    <img v-click="8"
+    <img v-click="3"
       src="./figures/apple/06-Religion.svg"
       class="absolute inset-0 h-full w-full object-contain"
       alt="Apple religion representation layer"
     />
-    <img v-click="9"
+    <img v-click="4"
       src="./figures/apple/07-health.svg"
+      class="absolute inset-0 h-full w-full object-contain"
+      alt="Apple health representation layer"
+    />
+    <img v-click="5"
+      src="./figures/apple/08-encodingmeaning.svg"
       class="absolute inset-0 h-full w-full object-contain"
       alt="Apple health representation layer"
     />
@@ -73,13 +180,13 @@ sectionTitle: Opening
 
   <div class="flex h-[310px] flex-col gap-3">
     <div class="h-1/2">
-      <blockquote v-click="5" class="blockquote2 !m-0 flex h-full items-center text-[1.05rem] leading-snug">
-        The same object can be represented in many ways.
-        A good representation makes useful structure visible and computation easier.
+      <blockquote class="blockquote3 !m-0 flex h-full items-center text-[1.05rem] leading-snug">
+        The same object can be encoded in many ways.
+        A good encoding representation makes useful structure visible and computation easier.
       </blockquote>
     </div>
     <div class="h-1/2">
-      <blockquote v-click="10" class="blockquote3 !m-0 flex h-full items-center text-[1.05rem] leading-snug">
+      <blockquote v-click="5" class="blockquote2 !m-0 flex h-full items-center text-[1.05rem] leading-snug">
         But representation is not only encoding.<br />
         Representation is also meaning.
       </blockquote>
@@ -87,206 +194,24 @@ sectionTitle: Opening
   </div>
 </div>
 
----
-section: opening
-sectionTitle: Opening
----
-
-# Our Vision is Edge Enhanced
-
-<div class="mt-5 grid grid-cols-[420px_360px] gap-8 items-center justify-center">
-  <div>
-    <div class="mb-2 text-center text-sm font-bold text-blue-800">
-      Retinal cells implement an
-      <a href="https://en.wikipedia.org/wiki/Edge_detection" target="_blank" rel="noopener noreferrer">edge filter</a>
-      through
-      <a href="https://en.wikipedia.org/wiki/Lateral_inhibition" target="_blank" rel="noopener noreferrer">lateral inhibition</a>.
-    </div>
-    <img
-      src="./figures/retina.jpg"
-      class="h-[270px] w-full object-contain rounded-xl"
-      alt="Retinal cells involved in lateral inhibition"
-    />
-  </div>
-
-  <div>
-    <div class="mb-2 text-center text-sm font-bold text-blue-800">
-      Mach Bands - Optical Illusion (Mach, 1865)
-    </div>
-    <div class="mach-bands-stage mach-bands-stage-compact">
-      <div v-click-hide="1" class="mach-band-row">
-        <div class="mach-band mach-band-1"><span>222</span></div>
-        <div class="mach-band mach-band-2"><span>198</span></div>
-        <div class="mach-band mach-band-3"><span>173</span></div>
-        <div class="mach-band mach-band-4"><span>148</span></div>
-      </div>
-      <div v-click="1" class="mach-bands-overlay">
-        <div class="mach-band-row mach-band-row-animated">
-          <div class="mach-band mach-band-1"><span>222</span></div>
-          <div class="mach-band mach-band-2"><span>198</span></div>
-          <div class="mach-band mach-band-3"><span>173</span></div>
-          <div class="mach-band mach-band-4"><span>148</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<blockquote v-click="2" class="blockquote1">
-Our eyes has built-in edge detectors that inhibit the response from neighboring cells.
-</blockquote>
-
-<div class="slide-citation">
-  <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC1350218/pdf/jphysiol00969-0168.pdf" target="_blank" rel="noopener noreferrer">
-    Shapley, R. M., &amp; Tolhurst, D. J. (1973). Edge detectors in human vision. <em>Journal of Physiology</em>, 229, 165-183.
-  </a>
-</div>
+<!--
+How can we represent an apple?
+[click]
+What you see here is an SVG image: a vector representation of the apple. The same apple can be represented as SVG text, made of paths, shapes, and coordinates.
+[click] 
+We can also represent the apple as an image made of individual pixel values. That is an equally valid representation of the same object.
+[click]
+But images are not the only representations we understand. We can write "Apple" as ASCII text, which is stored as integer values, or we can use an apple emoji encoded in UTF-8.
+[click]
+The same object can be encoded in many ways. A good encoding makes structure visible and computation easier.
+-->
 
 ---
-section: opening
-sectionTitle: Opening
+section: Representations of our World
+sectionTitle: Representations of our World
 ---
 
-# Human Vision System merges Encoding and Representation
-
-<div class="mt-4 flex justify-center">
-  <img
-    src="./figures/NIH-vision.svg"
-    class="max-h-[400px] max-w-[90%] object-contain rounded-xl"
-    alt="NIH visual acuity brain circuits illustration"
-  />
-</div>
-
-<div class="slide-citation">
-  <a href="https://www.nih.gov/news-events/news-releases/nih-researchers-identify-brain-circuits-responsible-visual-acuity" target="_blank" rel="noopener noreferrer">
-    Yang, J., et al. (2025). Differential impact of retinal lesions on visual responses of LGN X and Y cells. <em>The Journal of Neuroscience</em>. DOI: 10.1523/JNEUROSCI.0436-25.2025.
-  </a>
-</div>
-
---- 
-section: opening
-sectionTitle: Opening
----
-
-# The Monkey Business Illusion
-
-###
-
-<div class="mt-0 flex justify-center">
-  <iframe
-    class="h-[330px] w-full max-w-[740px] rounded-xl shadow"
-    src="https://www.youtube.com/embed/IGQmdoK_ZfY?rel=0&modestbranding=1"
-    title="The Monkey Business Illusion"
-    frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowfullscreen>
-  </iframe>
-</div>
-
-<div class="slide-citation">
-  <a href="https://doi.org/10.1068/i0386" target="_blank" rel="noopener noreferrer">
-    Simons, D. J. (2010). Monkeying around with the gorillas in our midst: Familiarity with an inattentional-blindness task does not improve the detection of unexpected events. <em>i-Perception</em>. https://doi.org/10.1068/i0386
-  </a>
-</div>
-
----
-section: opening
-sectionTitle: Opening
----
-
-# Feed-forward Convolutional Neural Networks
-
-<div class="mt-5 flex justify-center">
-  <img
-    src="./figures/LeNet-5_architecture.svg"
-    class="h-[300px] w-full max-w-[860px] object-contain"
-    alt="LeNet-5 convolutional neural network architecture"
-  />
-</div>
-
-<blockquote class="blockquote1">
-Early Deep Neural Networks similarly encode low-level representations to extract more high-level meaning in vectors and matrices.
-</blockquote>
-
-<div class="slide-citation">
-  <a href="http://vision.stanford.edu/cs598_spring07/papers/Lecun98.pdf" target="_blank" rel="noopener noreferrer">
-    LeCun, Y., Bottou, L., Bengio, Y., &amp; Haffner, P. (1998). Gradient-based learning applied to document recognition. <em>Proceedings of the IEEE</em>, 86(11), 2278-2324.
-  </a>
-</div>
-
----
-section: opening
-sectionTitle: Opening
----
-
-# Attention: global meaning to local encoding
-
-<div class="mt-5 grid grid-cols-[minmax(0,0.65fr)_minmax(0,0.35fr)] gap-5 items-center">
-  <img
-    src="./figures/dino-v3.jpg"
-    class="h-[320px] w-full object-contain rounded-xl"
-    alt="DINOv3 attention mechanism visualization"
-  />
-  <img
-    src="./figures/transformer.svg"
-    class="h-[350px] w-full object-contain rounded-xl"
-    alt="Transformer architecture diagram"
-  />
-</div>
-
-<div class="slide-citation">
-  <a href="https://arxiv.org/abs/2508.10104" target="_blank" rel="noopener noreferrer">
-    Siméoni, O., et al. (2025). DINOv3. <em>arXiv:2508.10104</em>.
-  </a>
-  <br />
-  <a href="https://d2l.ai/chapter_attention-mechanisms-and-transformers/index.html" target="_blank" rel="noopener noreferrer">
-    Zhang, A., Lipton, Z. C., Li, M., &amp; Smola, A. J. Dive into Deep Learning: Attention Mechanisms and Transformers.
-  </a>
-</div>
-
----
-section: opening
-sectionTitle: Opening
----
-
-# The representation depends on the Problem
-
-###
-
-<div class="mt-5 grid h-[350px] grid-cols-[550px_minmax(220px,280px)] gap-3 items-stretch justify-start">
-  <div class="grid h-[350px] grid-rows-2 gap-3">
-    <img
-      src="./figures/human-vision.png"
-      class="h-full w-full object-contain rounded-xl"
-      alt="Human vision illustration"
-    />
-    <img v-click="2"
-      src="./figures/bee-vision.png"
-      class="h-full w-full object-contain rounded-xl"
-      alt="Bee vision illustration"
-    />
-  </div>
-
-  <div class="flex h-[350px] flex-col gap-3">
-    <div class="h-1/2">
-      <blockquote v-click="1" class="blockquote1 !m-0 flex h-full items-center text-[1.05rem] leading-snug">
-        A useful representation depends on the problem we are trying to solve.
-      </blockquote>
-    </div>
-    <div class="h-1/2">
-      <blockquote v-click="2" class="blockquote2 !m-0 flex h-full items-center text-[1.05rem] leading-snug">
-        Bees see ultraviolet patterns that humans miss, because their visual system is tuned to different tasks.
-      </blockquote>
-    </div>
-  </div>
-</div>
-
----
-section: opening
-sectionTitle: Opening
----
-
-# Choosing Good Representations Matters
+# Choosing a Encoding Representations Matters
 
 ## Examples
 
@@ -332,9 +257,971 @@ sectionTitle: Opening
   </div>
 </div>
 
+<!--
+Let me show this with a few examples. A computer usually sees an image as a matrix of numbers, often between 0 and 255.
+[click]
+But when we represent those numbers as intensities of light, it becomes much easier for us to see structure in the raw data. Both are valid representations of the same underlying object.
+[click]
+What is the result of this addition in Roman numerals?
+[click]
+It is much easier to do math with Arabic numerals. And the shift from Roman numerals to Arabic numerals took roughly 300 to 600 years in the Western world. That gives us a sense of how hard it can be to move to a better but unfamiliar representation.
+[click]
+Similarly, coordinates are great for databases, but they are hard to read. Place descriptions are easier for people to understand, but they can be ambiguous.
+-->
+
 ---
-section: opening
-sectionTitle: Opening
+section: Representations of our World
+sectionTitle: Representations of our World
+---
+
+# We perceive our world in representations
+## Example: Vision
+
+  <div class="flex justify-center">
+    <div class="relative h-[320px] w-full max-w-[900px]">
+      <img
+        src="./figures/representations/representations_0005_Background.png"
+        class="absolute inset-0 h-full w-full object-contain rounded-xl"
+        alt="Background layer"
+      />
+      <img v-click="1"
+        src="./figures/representations/representations_0000_00_sun.png"
+        class="absolute inset-0 h-full w-full object-contain rounded-xl"
+        alt="Sun / illumination layer"
+      />
+      <img v-click="2"
+        src="./figures/representations/representations_0001_01_reflect.png"
+        class="absolute inset-0 h-full w-full object-contain rounded-xl"
+        alt="Reflectance layer"
+      />
+      <img v-click="3"
+        src="./figures/representations/representations_0004_03_vision.png"
+        class="absolute inset-0 h-full w-full object-contain rounded-xl"
+        alt="Human vision (RGB) layer"
+      />
+      <img v-click="4"
+        src="./figures/representations/representations_0003_04_camera.png"
+        class="absolute inset-0 h-full w-full object-contain rounded-xl"
+        alt="Photo camera RGB filters layer"
+      />
+      <img v-click="5"
+        src="./figures/representations/representations_0002_05_sat.png"
+        class="absolute inset-0 h-full w-full object-contain rounded-xl"
+        alt="Multi-spectral satellite sensors layer"
+      />
+    </div>
+
+<!---
+  <div class="space-y-5 max-w-[380px]">
+    <blockquote v-click class="blockquote1">
+      Physically, sunlight of various wavelengths gets reflected from objects. Our eyes are evolutionarily engineered to only perceive three colors.
+    </blockquote>
+    <blockquote v-click class="blockquote2">
+      Photo cameras are technically engineered to mimic human vision and capture Red-Green-Blue light through filters.
+    </blockquote>
+    <blockquote v-click class="blockquote3">
+      Multi-spectral satellite sensors are built to capture more spectral wavelengths.
+    </blockquote>
+  </div>
+  --->
+</div>
+
+<!--
+Overall, we perceive the world through representations. Let us take vision as an example.
+[click]
+The sun emits photons across a wide range of wavelengths. 
+[click]
+Objects absorb, reflect, or emit photons in parts of that spectrum.
+[click]
+Our eyes have three types of cone cells that respond roughly to red, green, and blue light.
+[click]
+Normal cameras try to imitate human vision by placing spectral filters on photosensitive sensors.
+[click]
+But that is an engineering decision. Multi-spectral sensors capture more wavelengths across several bands. This gives us a richer representation of the world than our eyes or normal cameras can provide.
+-->
+
+--- 
+section: Representations of our World
+sectionTitle: Representations of our World
+---
+
+# Engineering suitable Reprepresentations.
+
+<div class="mt-8 grid grid-cols-2 gap-8 items-start">
+  <div v-click class="flex flex-col items-center">
+    <h3 class="text-lg font-semibold text-blue-800 mb-4">Sensitivity of cone cells (S, M, L) in human eyes</h3>
+    <img
+      src="./figures/Cone-fundamentals-with-srgb-spectrum.svg"
+      class="max-h-[420px] w-full max-w-[700px] object-contain rounded-xl"
+      alt="Cone fundamentals with sRGB spectrum"
+    />
+  </div>
+
+  <div v-click class="space-y-4 flex flex-col items-center">
+    <h3 class="text-lg font-semibold text-blue-800 mb-4">Bayer Filter on Cameras</h3>
+    <img
+      src="./figures/Bayer_pattern_on_sensor_profile.svg"
+      class="w-full rounded-xl object-contain max-h-[220px]"
+      alt="Bayer pattern on sensor profile"
+    />
+  </div>
+</div>
+
+<blockquote v-click>
+Cameras are built to mimic our eyes: More green pixels in CCD camera mimics the color sensitivity in our eyes.
+</blockquote>
+
+<!--
+In general, we build tools and engineer sensors for our needs. Very often, we design them to imitate human vision.
+
+[click]
+The cone cells in our retina are sensitive to specific wavelengths.
+[click]
+A camera CCD sensor is sensitive across optical wavelengths and could capture more information. But red, green, and blue filters remove much of the light our eyes cannot perceive. This is the Bayer filter used in most consumer cameras.
+[click]
+So cameras are built to mimic our eyes and capture similar representations. This is also why a Bayer filter has twice as many green pixels: our eyes are especially sensitive to green shades.
+-->
+
+
+---
+section: Representations of our World
+sectionTitle: Representations of our World
+---
+
+# Spectral information can make patterns visible.
+
+<div class="mt-6 flex flex-col items-center gap-4">
+  <div class="w-full max-w-[600px]">
+    <img
+      src="./figures/S2_debris.png"
+      class="w-full object-contain rounded-lg"
+      alt="Sentinel-2 example: plastic litter and marine debris"
+    />
+    <div class="text-xs text-gray-600 mt-2">Example: plastic litter and marine debris (Sentinel-2)</div>
+  </div>
+</div>
+
+<!--
+But the world is not just red, green, and blue. The full light spectrum contains more information than our eyes can perceive, and some of that information is very useful.
+
+Here is one example with plastic litter debris in the ocean from a satellite image. In the visible channels, we can hardly see anything. In a multi-spectral false-color representation, lines and features become visible.
+-->
+
+---
+section: Representations of our World
+sectionTitle: Representations of our World
+---
+
+# The representation depends on the Problem
+
+<div class="mt-5 grid h-[350px] grid-cols-[550px_minmax(220px,280px)] gap-3 items-stretch justify-start">
+  <div class="grid h-[350px] grid-rows-2 gap-3">
+    <img
+      src="./figures/human-vision.png"
+      class="h-full w-full object-contain rounded-xl"
+      alt="Human vision illustration"
+    />
+    <img v-click="1"
+      src="./figures/bee-vision.png"
+      class="h-full w-full object-contain rounded-xl"
+      alt="Bee vision illustration"
+    />
+  </div>
+
+  <div class="flex h-[350px] flex-col gap-3">
+    <div class="h-1/2">
+      <blockquote class="blockquote1 !m-0 flex h-full items-center text-[1.05rem] leading-snug">
+        A useful representation depends on the problem we are trying to solve.
+      </blockquote>
+    </div>
+    <div class="h-1/2">
+      <blockquote v-click="1" class="blockquote2 !m-0 flex h-full items-center text-[1.05rem] leading-snug">
+        Bees see ultraviolet patterns that humans miss, because their visual system is tuned to different tasks.
+      </blockquote>
+    </div>
+  </div>
+</div>
+
+<!--
+The representation we should choose depends on the problem. For us, this is a lush meadow. The flowers are nice to look at, but green is clearly the dominant color.
+[click]
+Bees are much more interested in the flowers. Their eyes are sensitive to ultraviolet patterns, which helps them find food and gives them an evolutionary advantage.
+-->
+
+---
+section: Representations of our World
+sectionTitle: Representations of our World
+---
+
+# Our eyes have edge detectors
+
+<div class="mt-5 grid grid-cols-[420px_360px] gap-8 items-center justify-center">
+  <div>
+    <div class="mb-2 text-center text-sm font-bold text-blue-800">
+      Retinal cells implement an
+      <a href="https://en.wikipedia.org/wiki/Edge_detection" target="_blank" rel="noopener noreferrer">edge filter</a>
+      through
+      <a href="https://en.wikipedia.org/wiki/Lateral_inhibition" target="_blank" rel="noopener noreferrer">lateral inhibition</a>.
+    </div>
+    <img
+      src="./figures/retina.jpg"
+      class="h-[270px] w-full object-contain rounded-xl"
+      alt="Retinal cells involved in lateral inhibition"
+    />
+  </div>
+
+  <div v-click="1">
+    <div class="mb-2 text-center text-sm font-bold text-blue-800">
+      Mach Bands - Optical Illusion (Mach, 1865)
+    </div>
+    <div class="mach-bands-stage mach-bands-stage-compact">
+      <div v-click-hide="2" class="mach-band-row">
+        <div class="mach-band mach-band-1"><span>222</span></div>
+        <div class="mach-band mach-band-2"><span>198</span></div>
+        <div class="mach-band mach-band-3"><span>173</span></div>
+        <div class="mach-band mach-band-4"><span>148</span></div>
+      </div>
+      <div v-click="2" class="mach-bands-overlay">
+        <div class="mach-band-row mach-band-row-animated">
+          <div class="mach-band mach-band-1"><span>222</span></div>
+          <div class="mach-band mach-band-2"><span>198</span></div>
+          <div class="mach-band mach-band-3"><span>173</span></div>
+          <div class="mach-band mach-band-4"><span>148</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<blockquote v-click="3" class="blockquote1">
+Our eyes are not objective, they capture an edge-enhanced representation of the world.
+</blockquote>
+
+<div class="slide-citation">
+  <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC1350218/pdf/jphysiol00969-0168.pdf" target="_blank" rel="noopener noreferrer">
+    Shapley, R. M., &amp; Tolhurst, D. J. (1973). Edge detectors in human vision. <em>Journal of Physiology</em>, 229, 165-183.
+  </a>
+</div>
+
+<!--
+Our eyes also do not represent the world exactly as it is. Photoreceptor cells in the retina inhibit each other laterally. This changes our perception across edges and makes those edges more visible.
+
+[click]
+This is the mechanism behind the optical illusion called Mach bands. Here you see four rectangles with uniform grayscale values. All pixels within each rectangle have the same color. Do you agree?
+
+[click]
+If I move the rectangles next to each other, we create hard edges between the blocks. Do you now see a grayscale gradient? The right edge of the lighter square appears lighter, and the left edge of the darker square appears darker. That is our visual system enhancing edges.
+-->
+
+--- 
+section: Representations of our World
+sectionTitle: Representations of our World
+---
+
+# Selective Vision: The Monkey Business Illusion
+
+<div class="mt-0 flex justify-center">
+  <iframe
+    class="h-[330px] w-full max-w-[740px] rounded-xl shadow"
+    src="https://www.youtube.com/embed/IGQmdoK_ZfY?rel=0&modestbranding=1"
+    title="The Monkey Business Illusion"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+  </iframe>
+</div>
+
+<div class="slide-citation">
+  <a href="https://doi.org/10.1068/i0386" target="_blank" rel="noopener noreferrer">
+    Simons, D. J. (2010). Monkeying around with the gorillas in our midst: Familiarity with an inattentional-blindness task does not improve the detection of unexpected events. <em>i-Perception</em>. https://doi.org/10.1068/i0386
+  </a>
+</div>
+
+<!--
+But our selective vision goes beyond just edge-enhancement. Let me show you one experiment:
+[click video]
+
+After all, what we think we perceive in our environment is only a partial representation. Our mind selects what we see, often without us noticing.
+-->
+
+---
+section: Representations of our World
+sectionTitle: Representations of our World
+---
+
+# Our mind selects what we perceive
+
+<div class="mt-4 flex justify-center">
+  <img
+    src="./figures/NIH-vision.svg"
+    class="max-h-[400px] max-w-[90%] object-contain rounded-xl"
+    alt="NIH visual acuity brain circuits illustration"
+  />
+</div>
+
+<div class="slide-citation">
+  <a href="https://www.nih.gov/news-events/news-releases/nih-researchers-identify-brain-circuits-responsible-visual-acuity" target="_blank" rel="noopener noreferrer">
+    Yang, J., et al. (2025). Differential impact of retinal lesions on visual responses of LGN X and Y cells. <em>The Journal of Neuroscience</em>. DOI: 10.1523/JNEUROSCI.0436-25.2025.
+  </a>
+</div>
+
+<!--
+Overall, our vision is much more selective than just seeing edges more clearly.
+
+We have a lateral geniculate nucleus, or LGN, between the eyes and the visual cortex. It can selectively change, focus, or suppress visual signals when our mind focuses on specific tasks.
+
+While the retina encodes light into low-level, edge-enhanced representations, the visual cortex builds much more complex representations of the environment and the task. The LGN receives signals from both and creates a feedback loop between low-level and high-level visual representations.
+-->
+
+---
+section: Representations of our World
+sectionTitle: Representations of our World
+---
+
+# From Encoding to Meaning
+
+### Feature Learning in Neural Networks
+
+<div class="mt-5 flex justify-center">
+  <img
+    src="./figures/LeNet-5_architecture.svg"
+    class="h-[300px] w-full max-w-[860px] object-contain"
+    alt="LeNet-5 convolutional neural network architecture"
+  />
+</div>
+
+<!--
+So far, we have asked how we can represent an object, like an apple.
+-->
+
+---
+section: Representations of our World
+sectionTitle: Representations of our World
+---
+
+# Feature Representations in Neural Networks (LeNet-5, 2000)
+
+<div class="mt-5 flex justify-center">
+  <img
+    src="./figures/LeNet-5_architecture_MNIST/LeNet-5_architecture_MNIST.svg"
+    class="h-[350px] w-full max-w-[1200px] object-contain"
+    alt="LeNet-5 architecture with MNIST feature representations"
+  />
+</div>
+
+---
+section: Representations of our World
+sectionTitle: Representations of our World
+---
+
+# High-level Visual Features (Dinov3, 2025)
+
+<div class="mt-6 grid grid-cols-[minmax(0,0.5fr)_minmax(0,0.5fr)] gap-8 items-center">
+  <div class="flex min-h-[310px] justify-center">
+    <img
+      src="./figures/cosine_similarity.png"
+      class="h-[310px] w-full object-contain rounded-xl"
+      alt="Cosine similarity between feature representations"
+    />
+  </div>
+
+  <div class="flex justify-center">
+    <img
+      src="./figures/dinov3_demo.gif"
+      class="h-[330px] w-full object-contain rounded-xl"
+      alt="DINOv3 interactive patch cosine similarity animation"
+    />
+  </div>
+</div>
+
+<div class="slide-citation">
+  Demo:
+  <a href="https://github.com/devMuniz02/DINOv3-Interactive-Patch-Cosine-Similarity" target="_blank" rel="noopener noreferrer">
+    devMuniz02/DINOv3-Interactive-Patch-Cosine-Similarity
+  </a>
+  <br />
+  DINOv3 model:
+  <a href="https://arxiv.org/abs/2508.10104" target="_blank" rel="noopener noreferrer">
+    Siméoni, O., Vo, H. V., Seitzer, M., Baldassarre, F., Oquab, M., Jose, C., Khalidov, V., Szafraniec, M., Yi, S., Ramamonjisoa, M., et al. (2025). DINOv3. <em>arXiv:2508.10104</em>.
+  </a>
+</div>
+
+---
+section: Representations of our World
+sectionTitle: Representations of our World
+---
+
+# High-level Visual Features (SAM 2, 2024)
+
+<div class="mt-5 flex flex-col items-center gap-4">
+  <img
+    src="./figures/SAM2.gif"
+    class="h-[330px] w-full max-w-[760px] object-contain rounded-xl"
+    alt="SAM 2 interactive segmentation demo animation"
+  />
+  <a
+    href="https://sam2.metademolab.com/"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="text-blue-800">
+    Try the Segment Anything Model (SAM) 2 demo
+  </a>
+</div>
+
+---
+section: Representations of our World
+sectionTitle: Representations of our World
+---
+
+# From Physical to Societal Representations
+
+<div class="mt-6 grid grid-cols-2 gap-6">
+  <div v-click="1" class="rounded-xl border-2 p-5" style="border-color: var(--grl-data-orange); background: color-mix(in srgb, var(--grl-data-orange) 8%, white);">
+    <h3 class="text-blue-800">Observing the Physical World with Vision</h3>
+    <div class="mt-4 flex h-[230px] items-center justify-center rounded-lg p-3">
+      <img
+        src="./figures/representations.png"
+        class="h-full w-full object-contain"
+        alt="Vision representation summary"
+      />
+    </div>
+  </div>
+
+  <div v-click="2" class="rounded-xl border-2 p-5" style="border-color: var(--grl-data-green); background: color-mix(in srgb, var(--grl-data-green) 8%, white);">
+    <h3 class="text-blue-800">Understanding Societies by Language</h3>
+    <div class="mt-4 flex h-[230px] items-center justify-center rounded-lg p-3">
+      <img
+        src="./figures/apple-language.png"
+        class="h-full w-full object-contain"
+        alt="Language representation summary"
+      />
+    </div>
+  </div>
+</div>
+
+<!--
+So far, we looked at vision as a representation of the world. But vision is only one modality. Language is another.
+
+When we describe an apple, a city, or a landscape in words, we create a symbolic representation of the world. Computers cannot use this representation directly. They first need to encode it, split it into units, and transform it into numbers that a model can process.
+
+This gives us the path from character encodings to tokenization, embeddings, and language models.
+-->
+
+---
+section: Representations of our World
+sectionTitle: Representations of our World
+---
+
+# From Text Encoding to Language Models
+
+<div class="mt-8 grid grid-cols-[minmax(0,0.95fr)_24px_minmax(0,0.95fr)_24px_minmax(0,0.95fr)_24px_minmax(0,1.25fr)] gap-3 items-center">
+  <div v-click="1" class="flex h-[245px] flex-col rounded-xl border-2 p-4" style="border-color: var(--grl-data-orange); background: color-mix(in srgb, var(--grl-data-orange) 10%, white);">
+    <h3 class="h-[46px] text-[0.86rem] leading-tight">Words</h3>
+    <div class="mt-3 flex h-[62px] items-center justify-center rounded-lg bg-white px-3 text-center text-xl text-blue-800">
+      "Apple"
+    </div>
+    <p class="mt-4 text-[0.72rem] leading-snug text-gray-600">
+      Text is a human-readable representation of concepts and meaning.
+    </p>
+  </div>
+
+  <div v-click="2" class="flex items-center justify-center text-2xl font-bold" style="color: var(--grl-data-orange);">
+    →
+  </div>
+
+  <div v-click="2" class="flex h-[245px] flex-col rounded-xl border-2 p-4" style="border-color: var(--grl-data-orange); background: color-mix(in srgb, var(--grl-data-orange) 10%, white);">
+    <h3 class="h-[46px] text-[0.86rem] leading-tight">Token IDs</h3>
+    <div class="mt-3 flex h-[62px] items-center justify-center rounded-lg bg-white px-3 text-center font-mono text-lg text-blue-800">
+      [23182]
+    </div>
+    <p class="mt-4 text-[0.72rem] leading-snug text-gray-600">
+      A tokenizer maps text pieces to numerical IDs that a computer can process.
+    </p>
+  </div>
+
+  <div v-click="3" class="flex items-center justify-center text-2xl font-bold" style="color: var(--grl-data-orange);">
+    →
+  </div>
+
+  <div v-click="3" class="flex h-[245px] flex-col rounded-xl border-2 p-4" style="border-color: var(--grl-data-green); background: color-mix(in srgb, var(--grl-data-green) 10%, white);">
+    <h3 class="h-[46px] text-[0.86rem] leading-tight">Embeddings</h3>
+    <div class="mt-3 flex h-[62px] items-center justify-center rounded-lg bg-white px-3 text-center font-mono text-[0.72rem] leading-snug text-blue-800">
+      [0.12, -0.41, ...]
+    </div>
+    <p class="mt-4 text-[0.72rem] leading-snug text-gray-600">
+      Embeddings turn tokens into dense vectors to encode semantic relationships.
+    </p>
+  </div>
+
+  <div v-click="4" class="flex items-center justify-center text-2xl font-bold" style="color: var(--grl-data-green);">
+    →
+  </div>
+
+  <div v-click="4" class="flex h-[245px] flex-col rounded-xl border-2 p-4" style="border-color: var(--grl-data-green); background: color-mix(in srgb, var(--grl-data-green) 10%, white);">
+    <h3 class="h-[46px] whitespace-nowrap text-[0.82rem] leading-tight">Language Models</h3>
+    <div class="mt-3 flex h-[62px] items-center justify-center rounded-lg bg-white px-3 text-center text-sm font-semibold text-blue-800">
+      context + prediction
+    </div>
+    <p class="mt-4 text-[0.72rem] leading-snug text-gray-600">
+      Language models use context to predict likely next tokens.
+    </p>
+  </div>
+</div>
+
+<blockquote v-click="5" class="blockquote1 mt-6">
+Text and language captures the human world: machines move from low-level encodings of words and tokens to high-level representations associated with meaning in context.
+</blockquote>
+
+---
+section: Representations of our World
+sectionTitle: Representations of our World
+---
+
+# Character Encodings
+
+<div class="grid grid-cols-2 gap-6 mt-4">
+
+<div>
+
+## Human writing systems
+
+Societal history of representing meaning with symbols.
+
+<div class="mt-3 grid grid-cols-3 gap-2">
+  <div class="rounded-lg border-2 p-2" style="border-color: var(--grl-data-orange); background: color-mix(in srgb, var(--grl-data-orange) 8%, white);">
+    <div class="text-[0.68rem] font-bold leading-tight text-blue-800">Cuneiform</div>
+    <div class="mt-0.5 text-[0.56rem] leading-tight text-gray-600">c. 3200 BCE</div>
+    <div class="mt-1 rounded bg-white px-1.5 py-1 text-center font-mono text-sm">𒀭 𒈗 𒆠</div>
+  </div>
+
+  <div class="rounded-lg border-2 p-2" style="border-color: var(--grl-data-orange); background: color-mix(in srgb, var(--grl-data-orange) 8%, white);">
+    <div class="text-[0.68rem] font-bold leading-tight text-blue-800">Hieroglyphs</div>
+    <div class="mt-0.5 text-[0.56rem] leading-tight text-gray-600">c. 3100 BCE</div>
+    <div class="mt-1 rounded bg-white px-1.5 py-1 text-center font-mono text-sm">𓂀 𓅓 𓏏</div>
+  </div>
+
+  <div class="rounded-lg border-2 p-2" style="border-color: var(--grl-data-orange); background: color-mix(in srgb, var(--grl-data-orange) 8%, white);">
+    <div class="text-[0.68rem] font-bold leading-tight text-blue-800">Chinese characters</div>
+    <div class="mt-0.5 text-[0.56rem] leading-tight text-gray-600">c. 1200 BCE - today</div>
+    <div class="mt-1 rounded bg-white px-1.5 py-1 text-center font-mono text-sm">山 水 人 木</div>
+  </div>
+
+  <div class="rounded-lg border-2 p-2" style="border-color: var(--grl-data-orange); background: color-mix(in srgb, var(--grl-data-orange) 8%, white);">
+    <div class="text-[0.68rem] font-bold leading-tight text-blue-800">Alphabetic writing</div>
+    <div class="mt-0.5 text-[0.56rem] leading-tight text-gray-600">c. 700 BCE - today</div>
+    <div class="mt-1 rounded bg-white px-1.5 py-1 text-center font-mono text-sm">A B C ...</div>
+  </div>
+
+  <div class="rounded-lg border-2 p-2" style="border-color: var(--grl-data-orange); background: color-mix(in srgb, var(--grl-data-orange) 8%, white);">
+    <div class="text-[0.68rem] font-bold leading-tight text-blue-800">Digital-era symbols</div>
+    <div class="mt-0.5 text-[0.56rem] leading-tight text-gray-600">20th-21st century</div>
+    <div class="mt-1 rounded bg-white px-1.5 py-1 text-center font-mono text-sm">@ # :) 😂 🌍</div>
+  </div>
+
+  <div class="rounded-lg border-2 p-2" style="border-color: var(--grl-data-green); background: color-mix(in srgb, var(--grl-data-green) 8%, white);">
+    <div class="text-[0.68rem] font-bold leading-tight text-blue-800">Learned meaning</div>
+    <div class="mt-0.5 text-[0.56rem] leading-tight text-gray-600">different fonts, same symbol</div>
+    <div class="mt-1 flex flex-wrap justify-center gap-x-1.5 gap-y-0.5 rounded bg-white px-1.5 py-1 text-base text-blue-800">
+      <span style="font-family: Georgia, serif;">A</span>
+      <span style="font-family: 'Arial Black', sans-serif;">A</span>
+      <span style="font-family: 'Courier New', monospace;">A</span>
+      <span style="font-family: 'Brush Script MT', cursive;">A</span>
+      <span style="font-family: 'Comic Sans MS', cursive;">A</span>
+      <span style="font-family: Impact, fantasy;">A</span>
+      <span style="font-family: Copperplate, fantasy;">A</span>
+      <span style="font-family: Papyrus, fantasy;">A</span>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<div>
+
+## Machine character encodings
+
+Computers encode characters as integer numbers.
+
+<div class="mt-3 grid grid-cols-[repeat(3,minmax(0,1fr))] gap-2">
+  <div class="rounded-lg border-2 p-2" style="border-color: var(--grl-data-orange); background: color-mix(in srgb, var(--grl-data-orange) 8%, white);">
+    <div class="text-[0.68rem] font-bold leading-tight text-blue-800">ASCII</div>
+    <div class="mt-0.5 text-[0.56rem] leading-tight text-gray-600">early character numbers</div>
+    <div class="mt-1 rounded bg-white px-1.5 py-1 font-mono text-[0.68rem] leading-tight">
+      A → 65<br />
+      B → 66<br />
+      a → 97
+    </div>
+  </div>
+
+  <div class="rounded-lg border-2 p-2" style="border-color: var(--grl-data-orange); background: color-mix(in srgb, var(--grl-data-orange) 8%, white);">
+    <div class="text-[0.68rem] font-bold leading-tight text-blue-800">Unicode code points</div>
+    <div class="mt-0.5 text-[0.56rem] leading-tight text-gray-600">global character IDs</div>
+    <div class="mt-1 rounded bg-white px-1.5 py-1 font-mono text-[0.68rem] leading-tight">
+      A → U+0041<br />
+      ä → U+00E4<br />
+      🌍 → U+1F30D
+    </div>
+  </div>
+
+  <div class="rounded-lg border-2 p-2" style="border-color: var(--grl-data-orange); background: color-mix(in srgb, var(--grl-data-orange) 8%, white);">
+    <div class="text-[0.68rem] font-bold leading-tight text-blue-800">UTF-8 bytes</div>
+    <div class="mt-0.5 text-[0.56rem] leading-tight text-gray-600">stored byte sequences</div>
+    <div class="mt-1 rounded bg-white px-1.5 py-1 font-mono text-[0.68rem] leading-tight">
+      A → 41<br />
+      ä → C3 A4<br />
+      🌍 → F0 9F 8C 8D
+    </div>
+  </div>
+
+</div>
+
+<!--
+<blockquote class="mt-3 text-[0.72rem] leading-snug">
+A computer encodes "Apple" as [65, 112, 112, 108, 101] in ASCII or [41, 70, 70, 6C, 65] in UTF-8 bytes.
+</blockquote>
+-->
+
+<blockquote>
+<div class="mt-3 text-[0.72rem] leading-snug">
+  What's the result of "A" + "B" in C++? Try it out via
+  <a href="https://cpp.sh/" target="_blank" rel="noopener noreferrer" class="text-blue-800">cpp.sh</a>
+
+```cpp
+std::cout << ('A' + 'B') << std::endl;
+```
+</div>
+</blockquote>
+
+</div>
+
+</div>
+
+---
+section: Representations of our World
+sectionTitle: Representations of our World
+---
+
+# Word Tokenizer
+
+<div class="mt-4 grid grid-cols-2 gap-5">
+  <div class="box-card box-1 flex h-[330px] flex-col rounded-xl border-2 p-4" style="border-color: var(--grl-data-orange); background: color-mix(in srgb, var(--grl-data-orange) 8%, white);">
+    <h3 class="text-blue-800">Language Models tokenize text</h3>
+    <div class="mt-4 rounded-lg bg-white p-3">
+      <div class="text-[0.72rem] font-bold text-blue-800">Question: How many "r"s are in Strawberry?</div>
+      <div class="mt-2 grid grid-cols-[70px_minmax(0,1fr)] gap-2 text-[0.68rem] leading-tight">
+        <div class="font-semibold text-gray-600">Our view</div>
+        <div class="font-mono text-blue-800">S t r a w b e r r y</div>
+        <div class="font-semibold text-gray-600">Model view</div>
+        <div class="font-mono text-blue-800">[Str] [aw] [berry]</div>
+        <div class="font-semibold text-gray-600">Token IDs</div>
+        <div class="font-mono text-blue-800">[3504, 1134, 19772]</div>
+      </div>
+      <div class="mt-1 text-[0.58rem] leading-tight text-gray-500">
+        Tokenization depends on the tokenizer.
+      </div>
+      <div class="mt-2 text-[0.62rem] leading-tight text-gray-600">
+        Modern LLM tokenizers use vocabularies of roughly 100k-200k unique tokens.
+      </div>
+    </div>
+    <div class="mt-auto rounded-lg bg-white px-3 py-2 text-[0.62rem] leading-snug">
+      <div>
+        Try it yourself:
+        <a href="https://platform.openai.com/tokenizer" target="_blank" rel="noopener noreferrer" class="text-blue-800">platform.openai.com/tokenizer</a>
+      </div>
+      <div class="mt-1 text-gray-600">
+        Test: Strawberry · Schifffahrt · Poppelsdorf · Poppelsdorfer Allee · She sells seashells.
+      </div>
+    </div>
+  </div>
+
+  <div class="box-card box-2 flex h-[330px] flex-col rounded-xl border-2 p-4" style="border-color: var(--grl-data-green); background: color-mix(in srgb, var(--grl-data-green) 8%, white);">
+    <h3 class="text-blue-800">We also learned to read text in chunks</h3>
+    <div class="mt-4 rounded-lg bg-white p-4 text-[0.95rem] leading-snug text-blue-800">
+      Hmuans do not raed ervey wrod letetr by letetr. We raed in chnuks, ptaterns, and expcetations. As lnog as the frist and lsat lettres are in the rghit palce, the mnidele can be sracmbeled and the txet is sitll surprisingly easy to raed.
+    </div>
+    <p class="mt-4 text-[0.76rem] leading-snug text-gray-600">
+      We also use learned representations — not raw pixels or letters alone.
+    </p>
+  </div>
+</div>
+
+---
+section: language-representations
+sectionTitle: Language Representations
+---
+
+# Word Embeddings
+
+<div class="mt-4 grid grid-cols-2 gap-5">
+  <div class="box-card box-1 flex h-[330px] flex-col rounded-xl border-2 p-4" style="border-color: var(--grl-data-orange); background: color-mix(in srgb, var(--grl-data-orange) 8%, white);">
+    <h3 class="text-blue-800">From token IDs to vectors</h3>
+    <div class="mt-4 rounded-lg bg-white p-3">
+      <div class="grid grid-cols-[minmax(0,0.9fr)_minmax(0,0.55fr)_minmax(0,1.35fr)] gap-x-3 gap-y-2 text-[0.68rem] leading-tight">
+        <div class="font-semibold text-gray-600">token</div>
+        <div class="font-semibold text-gray-600">ID</div>
+        <div class="font-semibold text-gray-600">vector</div>
+        <div class="font-mono text-blue-800">strawberry</div>
+        <div class="font-mono text-blue-800">8123</div>
+        <div class="font-mono text-blue-800">[0.21, -0.11, ...]</div>
+        <div class="font-mono text-blue-800">apple</div>
+        <div class="font-mono text-blue-800">15421</div>
+        <div class="font-mono text-blue-800">[-0.35, 0.42,  ...]</div>
+        <div class="font-mono text-blue-800">banana</div>
+        <div class="font-mono text-blue-800">9821</div>
+        <div class="font-mono text-blue-800">[0.19, 0.05, ...]</div>
+      </div>
+    </div>
+    <p class="mt-auto text-[0.72rem] leading-snug text-gray-600">
+      Token IDs are arbitrary labels. Embedding vectors are learned representations that can capture meaning.
+    </p>
+  </div>
+
+  <div class="box-card box-2 flex h-[330px] flex-col rounded-xl border-2 p-4" style="border-color: var(--grl-data-green); background: color-mix(in srgb, var(--grl-data-green) 8%, white);">
+    <h3 class="text-blue-800">Words are points in a semantic space</h3>
+    <div class="relative mt-4 h-[230px] rounded-lg border bg-white p-2">
+      <img v-click-hide="1"
+        src="./figures/embedding_space_figure/embedding_space_figure.svg"
+        class="absolute inset-2 h-[calc(100%-1rem)] w-[calc(100%-1rem)] object-contain"
+        alt="Embedding space diagram showing words as points"
+      />
+      <img v-click="1" v-click-hide="2"
+        src="./figures/embedding_space_figure/embedding_space_figure_vectors.svg"
+        class="absolute inset-2 h-[calc(100%-1rem)] w-[calc(100%-1rem)] object-contain"
+        alt="Embedding space diagram showing words as vector-defined points"
+      />
+      <img v-click="2"
+        src="./figures/embedding_space_figure/embedding_space_figure_cosine.svg"
+        class="absolute inset-2 h-[calc(100%-1rem)] w-[calc(100%-1rem)] object-contain"
+        alt="Embedding space diagram showing cosine similarity between vectors"
+      />
+    </div>
+    <p v-click="1" class="mt-3 text-[0.72rem] leading-snug text-gray-600">
+      Points are defined by embedding vectors
+    </p>
+    <p v-click="2" class="mt-3 text-[0.72rem] leading-snug text-gray-600">
+      Similarity can be measured with cosine similarity.
+    </p>
+  </div>
+</div>
+
+---
+section: language-representations
+sectionTitle: Language Representations
+---
+
+# Softmax: Cosine Similarity to Probabilities
+
+<SoftmaxCosineDemo />
+
+---
+section: language-representations
+sectionTitle: Language Representations
+---
+
+# Context matters
+
+## The same word can move to different semantic neighborhoods depending on context.
+
+<div class="mt-4 grid grid-cols-2 gap-5">
+  <div class="box-card box-1 flex h-[285px] flex-col rounded-xl border-2 p-4" style="border-color: var(--grl-data-green); background: color-mix(in srgb, var(--grl-data-green) 8%, white);">
+    <h3 class="text-blue-800">Fruit context</h3>
+    <div class="mt-2 rounded-lg bg-white px-3 py-2 text-[0.82rem] text-blue-800">
+      I ate an <span class="rounded-full px-2 py-0.5 font-semibold" style="background: color-mix(in srgb, var(--grl-data-green) 18%, white);">apple</span>.
+    </div>
+    <div class="mt-2 rounded-lg bg-white px-3 py-2 font-mono text-[0.68rem] text-blue-800">
+      apple | "I ate an ..." → fruit-like vector
+    </div>
+    <div class="relative mt-3 h-[145px] rounded-lg border bg-white">
+      <div class="absolute left-3 top-2 text-[0.52rem] text-gray-500">2D illustration of high-dimensional embeddings</div>
+      <div class="absolute left-[42%] top-[44%] flex items-center gap-1 rounded-full px-2 py-1 text-[0.68rem] font-semibold text-blue-800" style="background: color-mix(in srgb, var(--grl-data-green) 16%, white);">
+        <span class="h-2 w-2 rounded-full" style="background: var(--grl-data-green);"></span>apple
+      </div>
+      <div class="absolute left-[22%] top-[28%] flex items-center gap-1 text-[0.62rem] text-blue-800"><span class="h-1.5 w-1.5 rounded-full" style="background: var(--grl-data-green);"></span>strawberry</div>
+      <div class="absolute left-[56%] top-[28%] flex items-center gap-1 text-[0.62rem] text-blue-800"><span class="h-1.5 w-1.5 rounded-full" style="background: var(--grl-data-green);"></span>banana</div>
+      <div class="absolute left-[28%] top-[67%] flex items-center gap-1 text-[0.62rem] text-blue-800"><span class="h-1.5 w-1.5 rounded-full" style="background: var(--grl-data-green);"></span>pear</div>
+      <div class="absolute left-[62%] top-[62%] flex items-center gap-1 text-[0.62rem] text-blue-800"><span class="h-1.5 w-1.5 rounded-full" style="background: var(--grl-data-green);"></span>orange</div>
+    </div>
+    <div class="mt-2 text-[0.62rem] leading-tight text-gray-600">
+      nearby words: fruit, sweet, edible
+    </div>
+  </div>
+
+  <div v-click="1" class="box-card box-2 flex h-[285px] flex-col rounded-xl border-2 p-4" style="border-color: var(--grl-data-orange); background: color-mix(in srgb, var(--grl-data-orange) 8%, white);">
+    <h3 class="text-blue-800">Technology context</h3>
+    <div class="mt-2 rounded-lg bg-white px-3 py-2 text-[0.82rem] text-blue-800">
+      I bought the new <span class="rounded-full px-2 py-0.5 font-semibold" style="background: color-mix(in srgb, var(--grl-data-orange) 18%, white);">Apple</span>.
+    </div>
+    <div class="mt-2 rounded-lg bg-white px-3 py-2 font-mono text-[0.68rem] text-blue-800">
+      Apple | "I bought the new ..." → company
+    </div>
+    <div class="relative mt-3 h-[145px] rounded-lg border bg-white">
+      <div class="absolute left-3 top-2 text-[0.52rem] text-gray-500">2D illustration of high-dimensional embeddings</div>
+      <div class="absolute left-[42%] top-[44%] flex items-center gap-1 rounded-full px-2 py-1 text-[0.68rem] font-semibold text-blue-800" style="background: color-mix(in srgb, var(--grl-data-orange) 16%, white);">
+        <span class="h-2 w-2 rounded-full" style="background: var(--grl-data-orange);"></span>Apple
+      </div>
+      <div class="absolute left-[24%] top-[28%] flex items-center gap-1 text-[0.62rem] text-blue-800"><span class="h-1.5 w-1.5 rounded-full" style="background: var(--grl-data-orange);"></span>iPhone</div>
+      <div class="absolute left-[58%] top-[28%] flex items-center gap-1 text-[0.62rem] text-blue-800"><span class="h-1.5 w-1.5 rounded-full" style="background: var(--grl-data-orange);"></span>MacBook</div>
+      <div class="absolute left-[22%] top-[66%] flex items-center gap-1 text-[0.62rem] text-blue-800"><span class="h-1.5 w-1.5 rounded-full" style="background: var(--grl-data-orange);"></span>Microsoft</div>
+      <div class="absolute left-[64%] top-[64%] flex items-center gap-1 text-[0.62rem] text-blue-800"><span class="h-1.5 w-1.5 rounded-full" style="background: var(--grl-data-orange);"></span>Google</div>
+    </div>
+    <div class="mt-2 text-[0.62rem] leading-tight text-gray-600">
+      nearby words: device, software, company
+    </div>
+  </div>
+</div>
+
+
+---
+section: language-representations
+sectionTitle: Language Representations
+---
+
+# Language Models predict the next token.
+
+<div class="mt-8 grid grid-cols-2 gap-4 rounded-xl border-2 p-5" style="border-color: var(--grl-data-green); background: color-mix(in srgb, var(--grl-data-green) 7%, white);">
+  <div class="rounded-lg bg-white px-3 py-2">
+    <div class="text-[0.68rem] font-bold text-blue-800">Static embedding</div>
+    <div class="mt-1 font-mono text-[0.68rem] text-blue-800">apple → one vector</div>
+  </div>
+  <div class="rounded-lg bg-white px-3 py-2">
+    <div class="text-[0.68rem] font-bold text-blue-800">Contextual embedding</div>
+    <div class="mt-1 font-mono text-[0.62rem] leading-snug text-blue-800">
+      apple in "I ate an ..." → fruit-like vector<br />
+      Apple in "I bought the new ..." → company-like vector
+    </div>
+  </div>
+</div>
+
+<div class="mt-6 grid grid-cols-[minmax(0,1fr)_28px_minmax(0,0.9fr)_28px_minmax(0,1.1fr)] gap-3 rounded-xl border-2 p-4" style="border-color: var(--grl-data-green); background: color-mix(in srgb, var(--grl-data-green) 8%, white);">
+  <div class="rounded-lg bg-white px-3 py-3">
+    <div class="text-[0.7rem] font-bold text-blue-800">Inputs</div>
+    <div class="mt-2 grid gap-2 text-[0.68rem] leading-snug text-blue-800">
+      <div class="rounded border px-2 py-1">
+        1. word to predict: <span class="font-mono">&lt;CLS&gt;</span>
+      </div>
+      <div class="rounded border px-2 py-1">
+        2. context: other text
+      </div>
+    </div>
+  </div>
+
+  <div class="flex items-center justify-center text-2xl font-bold" style="color: var(--grl-data-green);">→</div>
+
+  <div class="flex items-center justify-center rounded-lg bg-white px-3 py-3 text-center">
+    <div>
+      <div class="text-[0.7rem] font-bold text-blue-800">Statistical language model</div>
+      <div class="mt-2 font-mono text-[0.82rem] text-blue-800">
+        p(&lt;CLS&gt; | context)
+      </div>
+    </div>
+  </div>
+
+  <div class="flex items-center justify-center text-2xl font-bold" style="color: var(--grl-data-green);">→</div>
+
+  <div class="rounded-lg bg-white px-3 py-3">
+    <div class="text-[0.7rem] font-bold text-blue-800">Output probabilities</div>
+    <div class="mt-2 grid gap-1 font-mono text-[0.66rem] leading-tight text-blue-800">
+      <div>fruit: 0.42</div>
+      <div>company: 0.31</div>
+      <div>device: 0.18</div>
+      <div>other: 0.09</div>
+    </div>
+  </div>
+</div>
+
+<div class="mt-4 rounded-xl border px-4 py-2 text-center text-[0.76rem] font-semibold text-blue-800">
+  Try masked word prediction:
+  <a href="https://huggingface.co/spaces/ysdede/fill-mask-demo" target="_blank" rel="noopener noreferrer" class="underline">
+    huggingface.co/spaces/ysdede/fill-mask-demo
+  </a>
+</div>
+
+
+---
+section: Representations of our World
+sectionTitle: Representations of our World
+---
+
+# Autoregressive next token prediction
+
+<div class="mt-5 grid grid-cols-[minmax(0,0.32fr)_minmax(0,0.68fr)] items-start gap-6">
+  <div class="rounded-xl border-2 p-4 text-blue-800" style="border-color: var(--grl-data-green); background: color-mix(in srgb, var(--grl-data-green) 7%, white);">
+    <h3 class="text-lg">One token at a time</h3>
+    <p class="mt-3 text-sm leading-relaxed text-gray-700">
+      Language models predict the next token from a special masked position and the context that comes before it.
+    </p>
+    <p class="mt-3 text-sm leading-relaxed text-gray-700">
+      After a token is predicted, it is appended to the sequence. The model then repeats the same prediction step for the next position.
+    </p>
+    <blockquote class="mt-4 border-l-4 pl-3 text-sm font-semibold leading-relaxed" style="border-color: var(--grl-data-green);">
+      Autoregressive generation means predicting one token after another.
+    </blockquote>
+  </div>
+
+  <div class="min-w-0">
+    <AutoregressiveNextTokenDemo />
+  </div>
+</div>
+
+---
+section: Representations of our World
+sectionTitle: Representations of our World
+---
+
+# Language Model Training
+
+<div class="mt-4 grid grid-cols-[minmax(0,1fr)_minmax(0,0.58fr)] items-start gap-6">
+  <div>
+    <div class="rounded-xl border-2 p-4 text-blue-800" style="border-color: var(--grl-data-green); background: color-mix(in srgb, var(--grl-data-green) 7%, white);">
+      <h2 class="text-lg">Pre-training</h2>
+      <p class="mt-3 text-sm leading-relaxed text-gray-700">
+        Language models are pre-trained to predict the next tokens as accurately as possible given an existing text corpus.
+      </p>
+      <blockquote class="mt-4 border-l-4 pl-3 text-sm font-semibold leading-relaxed" style="border-color: var(--grl-data-green);">
+        Predicting the next token requires world knowledge.
+      </blockquote>
+    </div>
+    <div v-click="2" class="mt-4 rounded-xl border-2 p-4 text-blue-800" style="border-color: var(--grl-data-orange); background: color-mix(in srgb, var(--grl-data-orange) 7%, white);">
+      <h2 class="text-lg">Fine-tuning</h2>
+      <p class="mt-3 text-sm leading-relaxed text-gray-700">
+        They are then further fine-tuned to match developer-defined prompts.
+      </p>
+      <blockquote class="mt-4 border-l-4 pl-3 text-sm font-semibold leading-relaxed" style="border-color: var(--grl-data-orange);">
+        Fine-tuning creates AI assitants like ChatGPT, Claude, Mistral.
+      </blockquote>
+    </div>
+    <p class="mt-4 text-xs leading-relaxed text-gray-600">
+      More details:
+      <a href="https://www.youtube.com/watch?v=7xTGNNLPyMI" target="_blank" rel="noopener noreferrer" class="font-semibold underline">
+        Andrew Karpathy, “Deep Dive into LLMs like ChatGPT”
+      </a>
+    </p>
+  </div>
+
+  <div v-click="1">
+    <iframe
+      class="mx-auto h-[275px] w-full max-w-[275px] rounded-xl shadow"
+      src="https://www.youtube.com/embed/c2UGZmmgd0g?rel=0&modestbranding=1"
+      title="Fireside Chat With Ilya Sutskever and Jensen Huang AI Today and Vision of the Future March 2023"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen>
+    </iframe>
+    <p class="mt-2 text-[0.58rem] leading-tight text-gray-500">
+      <a href="https://resources.nvidia.com/en-us-summer-of-learning-for-students/gtcspring23-s52092" target="_blank" rel="noopener noreferrer" class="underline">
+        NVIDIA. (2023). <em>Fireside Chat With Ilya Sutskever and Jensen Huang: AI Today and Vision of the Future</em>.
+      </a>
+      YouTube short edited by
+      <a href="https://www.youtube.com/@automationwithwilt" target="_blank" rel="noopener noreferrer" class="underline">
+        @automationwithwilt
+      </a>.
+    </p>
+  </div>
+</div>
+
+---
+section: Representations of our World
+sectionTitle: Representations of our World
 ---
 
 # Representations of Geospatial Information
@@ -363,9 +1250,48 @@ sectionTitle: Opening
 We need to select or learn a suitable representation for the problem-at-hand.
 </blockquote>
 
+
+--- 
+section: Representations of our World
+sectionTitle: Representations of our World
 ---
-section: opening
-sectionTitle: Opening
+
+# Takeaway: We Navigate the World through Representations
+
+<div class="mt-8 grid grid-cols-3 gap-5">
+  <div v-click class="rounded-xl border p-5">
+    <div class="text-4xl mb-3">👁️</div>
+    <h3>Biological</h3>
+    <p class="text-gray-600">
+      Perception selects and transforms reality into signals we can act on.
+    </p>
+  </div>
+
+  <div v-click class="rounded-xl border p-5">
+    <div class="text-4xl mb-3">🗺️</div>
+    <h3>Engineered</h3>
+    <p class="text-gray-600">
+      Maps, coordinates, images, diagrams, and numbers make selected structure visible.
+    </p>
+  </div>
+
+  <div v-click class="rounded-xl border p-5">
+    <div class="text-4xl mb-3">🧠</div>
+    <h3>Learned</h3>
+    <p class="text-gray-600">
+      Neural networks learn representations that make patterns useful for prediction.
+    </p>
+  </div>
+</div>
+
+<blockquote v-click class="blockquote1 mt-8">
+  A representation is a useful reduction of reality:
+  it preserves what matters for a task and hides what does not.
+</blockquote>
+
+---
+section: Representations of our World
+sectionTitle: Representations of our World
 ---
 
 # Choosing or Learning Representations
@@ -381,7 +1307,7 @@ We choose structures that make operations easier.
 
 <div class="flex flex-1 items-center justify-center mt-6">
   <img
-    src="./figures/gis.jpg"
+    src="./figures/gis.png"
     class="w-full max-h-40 object-contain"
     alt="Geodatabase representation"
   />
@@ -409,53 +1335,6 @@ We train models to discover useful structure.
 <blockquote v-click="3" class="blockquote1 text-center">
 This course focuses on learning representations. 
 </blockquote>
-
----
-section: opening
-sectionTitle: Opening
----
-
-# Sections of this Lecture
-
-<div class="grid grid-cols-3 gap-4 mt-8">
-
-<div class="p-4 rounded-xl border box-card box-1">
-<h3>Mental representations <span class="box-icon i-carbon:user-profile"></span></h3>
-<img
-  src="./figures/mentalmap.jpeg"
-  class="mt-3 w-full h-[108px] object-cover rounded"
-  alt="Mental map illustration"
-/>
-<div class="box-body">Human memories, intuitions, expectations, and place knowledge built from experience.</div>
-</div>
-
-<div class="p-4 rounded-xl border box-card box-2" v-click>
-<h3>Geospatial representations <span class="box-icon i-carbon:map"></span></h3>
-<img
-  src="./figures/gis.jpg"
-  class="mt-3 w-full h-[108px] object-contain rounded"
-  alt="Geospatial database illustration"
-/>
-<div class="box-body">Rasters, vectors, polygons, and geodata layers that encode explicit spatial structure.</div>
-</div>
-
-<div class="p-4 rounded-xl border box-card box-3" v-click>
-<h3>Neural representations <span class="box-icon i-carbon:machine-learning-model"></span></h3>
-<img
-  src="./figures/neuralgeorepresentation.svg"
-  class="mt-3 w-full h-[108px] object-contain rounded"
-  alt="Neural geospatial representation illustration"
-/>
-<div class="box-body">World knowledge stored in AI parameters and activated through learned latent features.</div>
-</div>
-
-</div>
-
-<div class="slide-citation">
-  <a href="https://www.sueddeutsche.de/muenchen/mental-maps-die-stadt-in-meinem-kopf-1.3087218" target="_blank" rel="noopener noreferrer">
-    Die Stadt in meinem Kopf. (2016). <em>Süddeutsche Zeitung</em>.
-  </a>
-</div>
 
 ---
 layout: bonn-section
@@ -921,7 +1800,7 @@ sectionTitle: Geospatial Representations
 <div class="p-4 rounded-xl border box-card box-2">
 <h3>Geospatial databases <span class="box-icon i-carbon:map"></span></h3>
 <img
-  src="./figures/gis.jpg"
+  src="./figures/gis.png"
   class="mt-3 w-full h-[108px] object-contain rounded"
   alt="Geospatial database illustration"
 />
