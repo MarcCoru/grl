@@ -392,3 +392,30 @@ Example themes:
 </div>
 
 </div>
+
+---
+routeAlias: understanding-pulse
+---
+
+# Live Understanding Pulse
+
+<div class="mt-12 flex justify-center">
+  <UnderstandingPulse
+    session-id="lecture-01-test"
+    poll-id="understanding-pulse-test"
+    left-label="I am completely lost"
+    right-label="I fully understand"
+    instruction="Click on the line to vote."
+    :kernel-amplitude="12"
+  />
+</div>
+
+<!--
+<UnderstandingPulse
+  session-id="lecture-01-test"
+  poll-id="ready-check"
+  left-label="Not ready"
+  right-label="Ready"
+  instruction="Are you ready to continue?"
+/>
+-->

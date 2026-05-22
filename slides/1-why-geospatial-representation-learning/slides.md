@@ -595,19 +595,75 @@ So far, we have asked how we can represent an object, like an apple.
 -->
 
 ---
+layout: bonn-two-cols-header
 section: Representations of our World
 sectionTitle: Representations of our World
 ---
 
-# Feature Representations in Neural Networks (LeNet-5, 2000)
+# Excurse: Dimensionality Reduction
+
+We often need to visualize high-dimensional data on a lower-dimensional space, as here with 3D data on a 2D screen.
+
+::left::
+
+<div class="m-0">
+
+**Principal Component Analysis (PCA)** linearly rotates high-dimensional data points so that a 2D projection best captures the variance (i.e., spread) of the data
+
+<PcaEmbeddingDemo />
+
+</div>
+
+::right::
+
+<div v-click class="m-0">
+
+**t-distributed Stochastic Neighborhood Embedding (t-SNE)** moves data points onto a 2D plane and tries to preserve the local neighborhood relation between points.
+
+<TsneEmbeddingDemo />
+
+</div>
+
+---
+layout: bonn-two-cols-header
+columns: minmax(0, 1.7fr) minmax(0, .8fr)
+section: Representations of our World
+sectionTitle: Representations of our World
+---
+
+# Feature Representations in LeNet (2000)
+
+::left::
 
 <div class="mt-5 flex justify-center">
   <img
     src="./figures/LeNet-5_architecture_MNIST/LeNet-5_architecture_MNIST.svg"
-    class="h-[350px] w-full max-w-[1200px] object-contain"
+    class="h-[430px] w-full max-w-[1200px] object-contain"
     alt="LeNet-5 architecture with MNIST feature representations"
   />
 </div>
+
+::right::
+
+<div class="mt-5 flex flex-col gap-3">
+  
+  <img
+    src="./figures/MNIST_dataset_example.png"
+    class="h-[125px] w-full object-contain"
+    alt="Sample handwritten digits from the MNIST dataset"
+  />
+  
+  <blockquote>
+    Convolutional Neural Networks encode more high-level features in deeper layers, as shown in the t-SNE where where digit images are increasingly well separated on deeper layers
+  </blockquote>
+</div>
+
+---
+section: Representations of our World
+sectionTitle: Representations of our World
+---
+
+# Supervised Learning
 
 ---
 section: Representations of our World
