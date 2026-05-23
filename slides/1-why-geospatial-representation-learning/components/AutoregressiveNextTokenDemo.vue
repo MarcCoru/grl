@@ -34,7 +34,7 @@ onMounted(() => {
     };
 
     p.draw = () => {
-      // p.background(248);
+      p.background(255);
 
       drawTitle();
       drawContextSequence();

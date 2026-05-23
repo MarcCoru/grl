@@ -613,7 +613,7 @@ sectionTitle: Vision
 <div class="mt-5 flex justify-center">
   <img
     src="./figures/LeNet-5_architecture_MNIST/LeNet-5_architecture_MNIST.svg"
-    class="h-[350px] w-full max-w-[1200px] object-contain"
+    class="h-[430px] w-full max-w-[1200px] object-contain"
     alt="LeNet-5 architecture with MNIST feature representations"
   />
 </div>

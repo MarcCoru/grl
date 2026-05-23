@@ -392,3 +392,40 @@ Example themes:
 </div>
 
 </div>
+
+---
+
+# Live Understanding Pulse
+
+<div class="mt-2 text-lg leading-relaxed max-w-3xl">
+Throughout this course, I will show this widget to touch base on your level of understanding. It synchronizes across all devices, including in-class and virtual participants.
+</div>
+
+<div class="mt-1 text-l font-bold">
+Try it out - click on the line:
+</div>
+
+<div class="mt-0 flex justify-center">
+  <UnderstandingPulse
+    session-id="rootslide-demo"
+    poll-id="understanding-pulse-test"
+    left-label="I am completely lost"
+    right-label="I fully understand"
+    instruction="Click on the line to vote."
+    :kernel-amplitude="12"
+  />
+</div>
+
+<div class="mt-1 text-lg leading-relaxed max-w-3xl">
+This gives me feedback during class and also tracks the general understandability of the slides, so I can improve them in future iterations.
+</div>
+
+<!--
+<UnderstandingPulse
+  session-id="lecture-01-test"
+  poll-id="ready-check"
+  left-label="Not ready"
+  right-label="Ready"
+  instruction="Are you ready to continue?"
+/>
+-->
