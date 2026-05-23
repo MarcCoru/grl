@@ -25,8 +25,8 @@ Welcome to the first lecture on geospatial representation learning.
 -->
 
 ---
-section: Representations of our World
-sectionTitle: Representations of our World
+section: representations
+sectionTitle: Representations
 ---
 
 # Lecture Outline
@@ -44,33 +44,33 @@ sectionTitle: Representations of our World
 </div>
 
 <div class="p-4 rounded-xl border box-card box-2" v-click>
-<h3>Mental Maps</h3>
+<h3>Visual Representations</h3>
+<img
+  src="./figures/representations/representations_0004_03_vision.png"
+  class="mt-3 h-[118px] w-full object-contain rounded"
+  alt="Human vision representation layer"
+/>
+<div class="box-body">How vision encodes the world</div>
+</div>
+
+<div class="p-4 rounded-xl border box-card box-3" v-click>
+<h3>Language Representations</h3>
+<img
+  src="./figures/apple-language.png"
+  class="mt-3 h-[118px] w-full object-contain rounded"
+  alt="Language representation summary"
+/>
+<div class="box-body">How text becomes meaning</div>
+</div>
+
+<div class="p-4 rounded-xl border box-card box-4" v-click>
+<h3>Geospatial Representations</h3>
 <img
   src="./figures/mentalmap.jpeg"
   class="mt-3 h-[118px] w-full object-contain rounded"
   alt="Mental map illustration"
 />
-<div class="box-body">Our inherent spatial understanding</div>
-</div>
-
-<div class="p-4 rounded-xl border box-card box-3" v-click>
-<h3>Geospatial data</h3>
-<img
-  src="./figures/gis.png"
-  class="mt-3 h-[118px] w-full object-contain rounded"
-  alt="Geospatial database illustration"
-/>
-<div class="box-body">What do we measure on Earth?</div>
-</div>
-
-<div class="p-4 rounded-xl border box-card box-4" v-click>
-<h3>Neural Nets</h3>
-<img
-  src="./figures/neuralgeorepresentation.svg"
-  class="mt-3 h-[118px] w-full object-contain rounded"
-  alt="Neural geospatial representation illustration"
-/>
-<div class="box-body">How do Neural Nets learn spatial representations.</div>
+<div class="box-body">How places carry spatial meaning</div>
 </div>
 
 </div>
@@ -86,18 +86,18 @@ We will cover four sections:
 
 First, we will talk about representations in general. We will look at how we perceive the world, how we encode objects, and how representations carry meaning.
 [click]
-Second, we focus on our geospatial understanding of the environment. We will ask what happens when we think about a place or location, and what environmentally or economically useful information our representations capture.
+Second, we focus on visual representations. We will ask how vision encodes the world and why useful visual representations depend on the task.
 [click]
-Third, we look at geospatial representations from a data perspective. What data do we actually capture about the world?
+Third, we look at language representations. We will move from text encodings to tokens, embeddings, and language models.
 [click] 
-Finally, we will briefly discuss how neural networks can learn increasingly complex representations. That will give us a roadmap for the rest of the course.
+Finally, we focus on geospatial representations. We will ask how places carry meaning beyond coordinates and how this motivates geospatial representation learning.
 -->
 
 ---
 layout: bonn-section
 sectionColor: "#00457c"
-section: Representations of our World
-sectionTitle: Representations of our World
+section: representations
+sectionTitle: Representations
 ---
 
 # Representations of our World
@@ -106,7 +106,7 @@ sectionTitle: Representations of our World
 
 <div class="bonn-section-citation">
 <a href="https://de.wikipedia.org/wiki/Datei:Pink_lady_and_cross_section.jpg" target="_blank" rel="noopener noreferrer">
-Apple by Fir0002/Flagstaffotos license CC-BY-NC, world added via ChatGPT
+Apple by Fir0002/Flagstaffotos license CC-BY-NC, Earth added via ChatGPT
 </a>
 </div>
 
@@ -121,8 +121,8 @@ So I want to start with a small game.
 -->
 
 ---
-section: Representations of our World
-sectionTitle: Representations of our World
+section: representations
+sectionTitle: Representations
 ---
 
 # Describe an Apple.
@@ -131,47 +131,47 @@ sectionTitle: Representations of our World
 
 <div class="mt-5 grid h-[310px] grid-cols-[550px_minmax(220px,280px)] gap-3 items-stretch justify-start">
   <div class="relative h-[310px] w-[550px] justify-self-start">
-    <img 
+    <img
       src="./figures/apple/00-baselayer.svg"
       class="absolute inset-0 h-full w-full object-contain"
       alt="Apple base layer"
     />
-    <img 
+    <img v-click="1" 
       src="./figures/apple/01-SVG.svg"
       class="absolute inset-0 h-full w-full object-contain"
       alt="Apple SVG representation layer"
     />
-    <img 
+    <img v-click="2"
       src="./figures/apple/02-raster.svg"
       class="absolute inset-0 h-full w-full object-contain"
       alt="Apple raster representation layer"
     />
-    <img 
+    <img v-click="3"
       src="./figures/apple/03-text.svg"
       class="absolute inset-0 h-full w-full object-contain"
       alt="Apple text representation layer"
     />
-    <img v-click="1"
+    <img v-click="5"
       src="./figures/apple/04-newton.svg"
       class="absolute inset-0 h-full w-full object-contain"
       alt="Apple Newton representation layer"
     />
-    <img v-click="2"
+    <img v-click="6"
       src="./figures/apple/05-Computers.svg"
       class="absolute inset-0 h-full w-full object-contain"
       alt="Apple computers representation layer"
     />
-    <img v-click="3"
+    <img v-click="7"
       src="./figures/apple/06-Religion.svg"
       class="absolute inset-0 h-full w-full object-contain"
       alt="Apple religion representation layer"
     />
-    <img v-click="4"
+    <img v-click="8"
       src="./figures/apple/07-health.svg"
       class="absolute inset-0 h-full w-full object-contain"
       alt="Apple health representation layer"
     />
-    <img v-click="5"
+    <img v-click="9"
       src="./figures/apple/08-encodingmeaning.svg"
       class="absolute inset-0 h-full w-full object-contain"
       alt="Apple health representation layer"
@@ -180,13 +180,13 @@ sectionTitle: Representations of our World
 
   <div class="flex h-[310px] flex-col gap-3">
     <div class="h-1/2">
-      <blockquote class="blockquote3 !m-0 flex h-full items-center text-[1.05rem] leading-snug">
+      <blockquote v-click="5" class="blockquote3 !m-0 flex h-full items-center text-[1.05rem] leading-snug">
         The same object can be encoded in many ways.
         A good encoding representation makes useful structure visible and computation easier.
       </blockquote>
     </div>
     <div class="h-1/2">
-      <blockquote v-click="5" class="blockquote2 !m-0 flex h-full items-center text-[1.05rem] leading-snug">
+      <blockquote v-click="9" class="blockquote2 !m-0 flex h-full items-center text-[1.05rem] leading-snug">
         But representation is not only encoding.<br />
         Representation is also meaning.
       </blockquote>
@@ -207,8 +207,8 @@ The same object can be encoded in many ways. A good encoding makes structure vis
 -->
 
 ---
-section: Representations of our World
-sectionTitle: Representations of our World
+section: representations
+sectionTitle: Representations
 ---
 
 # Choosing a Encoding Representations Matters
@@ -270,8 +270,17 @@ Similarly, coordinates are great for databases, but they are hard to read. Place
 -->
 
 ---
-section: Representations of our World
-sectionTitle: Representations of our World
+layout: bonn-section
+sectionColor: "#2f7d32"
+section: visual-representations
+sectionTitle: Vision
+---
+
+# Visual Representations
+
+---
+section: visual-representations
+sectionTitle: Vision
 ---
 
 # We perceive our world in representations
@@ -341,8 +350,8 @@ But that is an engineering decision. Multi-spectral sensors capture more wavelen
 -->
 
 --- 
-section: Representations of our World
-sectionTitle: Representations of our World
+section: visual-representations
+sectionTitle: Vision
 ---
 
 # Engineering suitable Reprepresentations.
@@ -384,8 +393,8 @@ So cameras are built to mimic our eyes and capture similar representations. This
 
 
 ---
-section: Representations of our World
-sectionTitle: Representations of our World
+section: visual-representations
+sectionTitle: Vision
 ---
 
 # Spectral information can make patterns visible.
@@ -408,8 +417,8 @@ Here is one example with plastic litter debris in the ocean from a satellite ima
 -->
 
 ---
-section: Representations of our World
-sectionTitle: Representations of our World
+section: visual-representations
+sectionTitle: Vision
 ---
 
 # The representation depends on the Problem
@@ -449,8 +458,8 @@ Bees are much more interested in the flowers. Their eyes are sensitive to ultrav
 -->
 
 ---
-section: Representations of our World
-sectionTitle: Representations of our World
+section: visual-representations
+sectionTitle: Vision
 ---
 
 # Our eyes have edge detectors
@@ -514,8 +523,8 @@ If I move the rectangles next to each other, we create hard edges between the bl
 -->
 
 --- 
-section: Representations of our World
-sectionTitle: Representations of our World
+section: visual-representations
+sectionTitle: Vision
 ---
 
 # Selective Vision: The Monkey Business Illusion
@@ -545,8 +554,8 @@ After all, what we think we perceive in our environment is only a partial repres
 -->
 
 ---
-section: Representations of our World
-sectionTitle: Representations of our World
+section: visual-representations
+sectionTitle: Vision
 ---
 
 # Our mind selects what we perceive
@@ -574,8 +583,8 @@ While the retina encodes light into low-level, edge-enhanced representations, th
 -->
 
 ---
-section: Representations of our World
-sectionTitle: Representations of our World
+section: visual-representations
+sectionTitle: Vision
 ---
 
 # From Encoding to Meaning
@@ -595,8 +604,8 @@ So far, we have asked how we can represent an object, like an apple.
 -->
 
 ---
-section: Representations of our World
-sectionTitle: Representations of our World
+section: visual-representations
+sectionTitle: Vision
 ---
 
 # Feature Representations in Neural Networks (LeNet-5, 2000)
@@ -610,8 +619,8 @@ sectionTitle: Representations of our World
 </div>
 
 ---
-section: Representations of our World
-sectionTitle: Representations of our World
+section: visual-representations
+sectionTitle: Vision
 ---
 
 # High-level Visual Features (Dinov3, 2025)
@@ -647,8 +656,8 @@ sectionTitle: Representations of our World
 </div>
 
 ---
-section: Representations of our World
-sectionTitle: Representations of our World
+section: visual-representations
+sectionTitle: Vision
 ---
 
 # High-level Visual Features (SAM 2, 2024)
@@ -669,8 +678,19 @@ sectionTitle: Representations of our World
 </div>
 
 ---
-section: Representations of our World
-sectionTitle: Representations of our World
+layout: bonn-section
+sectionColor: "#6f2d7f"
+section: language-representations
+sectionTitle: Language
+---
+
+# Language Representations
+
+<img src="./figures/apple-language.png" alt="Language representation summary" />
+
+---
+section: language-representations
+sectionTitle: Language
 ---
 
 # From Physical to Societal Representations
@@ -708,8 +728,8 @@ This gives us the path from character encodings to tokenization, embeddings, and
 -->
 
 ---
-section: Representations of our World
-sectionTitle: Representations of our World
+section: language-representations
+sectionTitle: Language
 ---
 
 # From Text Encoding to Language Models
@@ -773,8 +793,8 @@ Text and language captures the human world: machines move from low-level encodin
 </blockquote>
 
 ---
-section: Representations of our World
-sectionTitle: Representations of our World
+section: language-representations
+sectionTitle: Language
 ---
 
 # Character Encodings
@@ -897,8 +917,8 @@ std::cout << ('A' + 'B') << std::endl;
 </div>
 
 ---
-section: Representations of our World
-sectionTitle: Representations of our World
+section: language-representations
+sectionTitle: Language
 ---
 
 # Word Tokenizer
@@ -947,7 +967,7 @@ sectionTitle: Representations of our World
 
 ---
 section: language-representations
-sectionTitle: Language Representations
+sectionTitle: Language
 ---
 
 # Word Embeddings
@@ -1006,7 +1026,7 @@ sectionTitle: Language Representations
 
 ---
 section: language-representations
-sectionTitle: Language Representations
+sectionTitle: Language
 ---
 
 # Softmax: Cosine Similarity to Probabilities
@@ -1015,7 +1035,7 @@ sectionTitle: Language Representations
 
 ---
 section: language-representations
-sectionTitle: Language Representations
+sectionTitle: Language
 ---
 
 # Context matters
@@ -1073,7 +1093,7 @@ sectionTitle: Language Representations
 
 ---
 section: language-representations
-sectionTitle: Language Representations
+sectionTitle: Language
 ---
 
 # Language Models predict the next token.
@@ -1138,8 +1158,8 @@ sectionTitle: Language Representations
 
 
 ---
-section: Representations of our World
-sectionTitle: Representations of our World
+section: language-representations
+sectionTitle: Language
 ---
 
 # Autoregressive next token prediction
@@ -1164,8 +1184,8 @@ sectionTitle: Representations of our World
 </div>
 
 ---
-section: Representations of our World
-sectionTitle: Representations of our World
+section: language-representations
+sectionTitle: Language
 ---
 
 # Language Model Training
@@ -1220,130 +1240,13 @@ sectionTitle: Representations of our World
 </div>
 
 ---
-section: Representations of our World
-sectionTitle: Representations of our World
----
-
-# Representations of Geospatial Information
-
-## Same city, different maps
-
-<div class="grid grid-cols-3 gap-4 mt-5">
-  <img
-    src="./figures/mentalmap.jpeg"
-    class="w-full h-[220px] object-cover rounded-xl border"
-    alt="Mental map of Munich"
-  />
-  <img v-click
-    src="./figures/ubahnmunich.jpg"
-    class="w-full h-[220px] object-cover rounded-xl border"
-    alt="Munich U-Bahn map"
-  />
-  <img v-click
-    src="./figures/munich.png"
-    class="w-full h-[220px] object-cover rounded-xl border"
-    alt="Map of Munich"
-  />
-</div>
-
-<blockquote v-click class="blockquite1">
-We need to select or learn a suitable representation for the problem-at-hand.
-</blockquote>
-
-
---- 
-section: Representations of our World
-sectionTitle: Representations of our World
----
-
-# Takeaway: We Navigate the World through Representations
-
-<div class="mt-8 grid grid-cols-3 gap-5">
-  <div v-click class="rounded-xl border p-5">
-    <div class="text-4xl mb-3">👁️</div>
-    <h3>Biological</h3>
-    <p class="text-gray-600">
-      Perception selects and transforms reality into signals we can act on.
-    </p>
-  </div>
-
-  <div v-click class="rounded-xl border p-5">
-    <div class="text-4xl mb-3">🗺️</div>
-    <h3>Engineered</h3>
-    <p class="text-gray-600">
-      Maps, coordinates, images, diagrams, and numbers make selected structure visible.
-    </p>
-  </div>
-
-  <div v-click class="rounded-xl border p-5">
-    <div class="text-4xl mb-3">🧠</div>
-    <h3>Learned</h3>
-    <p class="text-gray-600">
-      Neural networks learn representations that make patterns useful for prediction.
-    </p>
-  </div>
-</div>
-
-<blockquote v-click class="blockquote1 mt-8">
-  A representation is a useful reduction of reality:
-  it preserves what matters for a task and hides what does not.
-</blockquote>
-
----
-section: Representations of our World
-sectionTitle: Representations of our World
----
-
-# Choosing or Learning Representations
-
-<div class="grid grid-cols-2 gap-6 mt-8">
-
-<div v-click="1" class="p-4 rounded-xl border shadow-sm flex min-h-[300px] flex-col">
-<h3>Designed representations</h3>
-
-<p class="mt-2 text-sm leading-snug text-gray-600">
-We choose structures that make operations easier.
-</p>
-
-<div class="flex flex-1 items-center justify-center mt-6">
-  <img
-    src="./figures/gis.png"
-    class="w-full max-h-40 object-contain"
-    alt="Geodatabase representation"
-  />
-</div>
-</div>
-
-<div v-click="2" class="p-4 rounded-xl border shadow-sm flex min-h-[300px] flex-col">
-<h3>Learned representations</h3>
-
-<p class="mt-2 text-sm leading-snug text-gray-600">
-We train models to discover useful structure.
-</p>
-
-<div class="flex flex-1 items-center justify-center mt-6">
-  <img
-    src="./figures/neuralgeorepresentation.svg"
-    class="w-full max-h-40 object-contain"
-    alt="Neural georepresentation"
-  />
-</div>
-</div>
-
-</div>
-
-<blockquote v-click="3" class="blockquote1 text-center">
-This course focuses on learning representations. 
-</blockquote>
-
----
 layout: bonn-section
 sectionColor: "#00457c"
-section: mental-representations
-sectionTitle: Mental Representations
+section: geospatial-representations
+sectionTitle: Geospatial
 ---
 
-# Mental Representations
+# Geospatial Representations
 
 <img src="./figures/mentalmap.jpeg" alt="Mental map illustration" />
 
@@ -1354,8 +1257,8 @@ Die Stadt in meinem Kopf. (2016). <em>Süddeutsche Zeitung</em>.
 </div>
 
 ---
-section: mental-representations
-sectionTitle: Mental Representations
+section: geospatial-representations
+sectionTitle: Geospatial
 ---
 
 # Task: Think of a place
@@ -1388,39 +1291,130 @@ We feel mental representations as "intuitions" and "memories" of things/places.
 </div>
 
 ---
-section: mental-representations
-sectionTitle: Mental Representations
+section: geospatial-representations
+sectionTitle: Geospatial
 ---
 
-# Geology: Where can we find this Rock?
+# A place is more than a coordinate
 
-<div class="grid grid-cols-[minmax(0,1fr)_220px] gap-8 mt-5 items-center">
+<div class="grid grid-cols-2 gap-8 mt-8">
 
-<div class="flex justify-center">
+<div class="border rounded-xl p-6">
+
+## Coordinate
+
+<div class="mt-5 text-2xl font-bold text-blue-800">50.7374° N, 7.0982° E</div>
+
+<div class="grid grid-cols-3 gap-3 mt-8 text-center text-gray-700">
+  <div class="border rounded-xl p-3">reference</div>
+  <div class="border rounded-xl p-3">position</div>
+  <div class="border rounded-xl p-3">index</div>
+</div>
+
+</div>
+
+<div class="border rounded-xl p-6">
+
+## Place
+
+<div class="grid grid-cols-2 gap-3 mt-5 text-center">
+  <div class="border rounded-xl p-3">home</div>
+  <div class="border rounded-xl p-3">routes</div>
+  <div class="border rounded-xl p-3">landmarks</div>
+  <div class="border rounded-xl p-3">memories</div>
+  <div class="border rounded-xl p-3">context</div>
+  <div class="border rounded-xl p-3">meaning</div>
+</div>
+
+</div>
+
+</div>
+
+<blockquote>
+A coordinate tells us where something is. A representation tells us what that place means.
+</blockquote>
+
+---
+section: language-representations
+sectionTitle: Language
+---
+
+# Representations of Geospatial Information
+
+## Same city, different maps
+
+<div class="grid grid-cols-3 gap-4 mt-5">
   <img
-    src="./geoguessr.svg"
-    class="w-full h-[340px] object-contain"
-    alt="GeoGuessr coordinate reasoning illustration"
+    src="./figures/mentalmap.jpeg"
+    class="w-full h-[220px] object-cover rounded-xl border"
+    alt="Mental map of Munich"
+  />
+  <img v-click
+    src="./figures/ubahnmunich.jpg"
+    class="w-full h-[220px] object-cover rounded-xl border"
+    alt="Munich U-Bahn map"
+  />
+  <img v-click
+    src="./figures/munich.png"
+    class="w-full h-[220px] object-cover rounded-xl border"
+    alt="Map of Munich"
   />
 </div>
 
-<div class="flex justify-center" v-click>
-  <iframe
-    class="h-[340px] aspect-[9/16] rounded-xl shadow"
-    src="https://www.youtube.com/embed/OV6SYabHM_w?rel=0&modestbranding=1"
-    title="GeoGuessr example"
-    frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowfullscreen>
-  </iframe>
-</div>
-
-</div>
+<blockquote v-click class="blockquite1">
+We need to select or learn a suitable representation for the problem-at-hand.
+</blockquote>
 
 
 ---
-section: mental-representations
-sectionTitle: Mental Representations
+section: geospatial-representations
+sectionTitle: Geospatial
+---
+
+# How do we experience and recognize   places?
+
+<div class="mt-5 text-2xl text-gray-700">
+We infer location from many weak cues.
+</div>
+
+<div class="grid grid-cols-3 gap-2 mt-7 text-center">
+  <div v-click class="border rounded-xl px-2 py-1.5">
+    <div class="text-2xl leading-none">🌿</div>
+    <div class="mt-1 text-sm font-bold text-blue-800">vegetation</div>
+  </div>
+  <div v-click class="border rounded-xl px-2 py-1.5">
+    <div class="text-2xl leading-none">🛣️</div>
+    <div class="mt-1 text-sm font-bold text-blue-800">road markings</div>
+  </div>
+  <div v-click class="border rounded-xl px-2 py-1.5">
+    <div class="text-2xl leading-none">🏘️</div>
+    <div class="mt-1 text-sm font-bold text-blue-800">architecture</div>
+  </div>
+  <div v-click class="border rounded-xl px-2 py-1.5">
+    <div class="text-2xl leading-none">🪧</div>
+    <div class="mt-1 text-sm font-bold text-blue-800">signs and language</div>
+  </div>
+  <div v-click class="border rounded-xl px-2 py-1.5">
+    <div class="text-2xl leading-none">⛰️</div>
+    <div class="mt-1 text-sm font-bold text-blue-800">terrain</div>
+  </div>
+  <div v-click class="border rounded-xl px-2 py-1.5">
+    <div class="text-2xl leading-none">🌦️</div>
+    <div class="mt-1 text-sm font-bold text-blue-800">climate</div>
+  </div>
+  <div v-click class="border rounded-xl px-2 py-1.5">
+    <div class="text-2xl leading-none">🚉</div>
+    <div class="mt-1 text-sm font-bold text-blue-800">infrastructure</div>
+  </div>
+</div>
+
+<blockquote v-click>
+We do not recognize places from one signal. We combine many imperfect signals into a coherent spatial intuition.
+</blockquote>
+
+---
+section: geospatial-representations
+sectionTitle: Geospatial
 ---
 
 # History: When was this city founded?
@@ -1473,8 +1467,8 @@ sectionTitle: Mental Representations
 </div>
 
 ---
-section: mental-representations
-sectionTitle: Mental Representations
+section: geospatial-representations
+sectionTitle: Geospatial
 ---
 
 # Livability: How livable is this neighborhood?
@@ -1523,8 +1517,8 @@ sectionTitle: Mental Representations
 </div>
 
 ---
-section: mental-representations
-sectionTitle: Mental Representations
+section: geospatial-representations
+sectionTitle: Geospatial
 ---
 
 # Livability: How livable is this neighborhood?
@@ -1573,8 +1567,8 @@ sectionTitle: Mental Representations
 </div>
 
 ---
-section: mental-representations
-sectionTitle: Mental Representations
+section: geospatial-representations
+sectionTitle: Geospatial
 ---
 
 # Livability: Qualitative and Quantitative Factors
@@ -1614,8 +1608,8 @@ It takes into account:
 </div>
 
 ---
-section: mental-representations
-sectionTitle: Mental Representations
+section: geospatial-representations
+sectionTitle: Geospatial
 ---
 
 # Biodiversity: Which Agriculural Landscape supports more Diverse Bird Populations?
@@ -1662,98 +1656,39 @@ sectionTitle: Mental Representations
 </div>
 
 ---
-section: mental-representations
-sectionTitle: Mental Representations
+section: geospatial-representations
+sectionTitle: Geospatial
 ---
 
-# How do we recognize places?
+# Geology: Where can we find this Rock?
 
-<div class="mt-5 text-2xl text-gray-700">
-We infer location from many weak cues.
+<div class="grid grid-cols-[minmax(0,1fr)_220px] gap-8 mt-5 items-center">
+
+<div class="flex justify-center">
+  <img
+    src="./geoguessr.svg"
+    class="w-full h-[340px] object-contain"
+    alt="GeoGuessr coordinate reasoning illustration"
+  />
 </div>
 
-<div class="grid grid-cols-3 gap-2 mt-7 text-center">
-  <div v-click class="border rounded-xl px-2 py-1.5">
-    <div class="text-2xl leading-none">🌿</div>
-    <div class="mt-1 text-sm font-bold text-blue-800">vegetation</div>
-  </div>
-  <div v-click class="border rounded-xl px-2 py-1.5">
-    <div class="text-2xl leading-none">🛣️</div>
-    <div class="mt-1 text-sm font-bold text-blue-800">road markings</div>
-  </div>
-  <div v-click class="border rounded-xl px-2 py-1.5">
-    <div class="text-2xl leading-none">🏘️</div>
-    <div class="mt-1 text-sm font-bold text-blue-800">architecture</div>
-  </div>
-  <div v-click class="border rounded-xl px-2 py-1.5">
-    <div class="text-2xl leading-none">🪧</div>
-    <div class="mt-1 text-sm font-bold text-blue-800">signs and language</div>
-  </div>
-  <div v-click class="border rounded-xl px-2 py-1.5">
-    <div class="text-2xl leading-none">⛰️</div>
-    <div class="mt-1 text-sm font-bold text-blue-800">terrain</div>
-  </div>
-  <div v-click class="border rounded-xl px-2 py-1.5">
-    <div class="text-2xl leading-none">🌦️</div>
-    <div class="mt-1 text-sm font-bold text-blue-800">climate</div>
-  </div>
-  <div v-click class="border rounded-xl px-2 py-1.5">
-    <div class="text-2xl leading-none">🚉</div>
-    <div class="mt-1 text-sm font-bold text-blue-800">infrastructure</div>
-  </div>
+<div class="flex justify-center" v-click>
+  <iframe
+    class="h-[340px] aspect-[9/16] rounded-xl shadow"
+    src="https://www.youtube.com/embed/OV6SYabHM_w?rel=0&modestbranding=1"
+    title="GeoGuessr example"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen>
+  </iframe>
 </div>
 
-<blockquote v-click>
-We do not recognize places from one signal. We combine many imperfect signals into a coherent spatial intuition.
-</blockquote>
+</div>
+
 
 ---
-section: mental-representations
-sectionTitle: Mental Representations
----
-
-# A place is more than a coordinate
-
-<div class="grid grid-cols-2 gap-8 mt-8">
-
-<div class="border rounded-xl p-6">
-
-## Coordinate
-
-<div class="mt-5 text-2xl font-bold text-blue-800">50.7374° N, 7.0982° E</div>
-
-<div class="grid grid-cols-3 gap-3 mt-8 text-center text-gray-700">
-  <div class="border rounded-xl p-3">reference</div>
-  <div class="border rounded-xl p-3">position</div>
-  <div class="border rounded-xl p-3">index</div>
-</div>
-
-</div>
-
-<div class="border rounded-xl p-6">
-
-## Place
-
-<div class="grid grid-cols-2 gap-3 mt-5 text-center">
-  <div class="border rounded-xl p-3">home</div>
-  <div class="border rounded-xl p-3">routes</div>
-  <div class="border rounded-xl p-3">landmarks</div>
-  <div class="border rounded-xl p-3">memories</div>
-  <div class="border rounded-xl p-3">context</div>
-  <div class="border rounded-xl p-3">meaning</div>
-</div>
-
-</div>
-
-</div>
-
-<blockquote>
-A coordinate tells us where something is. A representation tells us what that place means.
-</blockquote>
-
----
-section: mental-representations
-sectionTitle: Mental Representations
+section: geospatial-representations
+sectionTitle: Geospatial
 ---
 
 # Takeaways Mental Representations
@@ -1780,7 +1715,7 @@ sectionTitle: Mental Representations
 
 ---
 section: geospatial-representations
-sectionTitle: Geospatial Representations
+sectionTitle: Geospatial
 ---
 
 # Geospatial representations
@@ -1814,6 +1749,100 @@ sectionTitle: Geospatial Representations
     Die Stadt in meinem Kopf. (2016). <em>Süddeutsche Zeitung</em>.
   </a>
 </div>
+
+---
+layout: bonn-section
+sectionColor: "#20b32f"
+section: takeaways
+sectionTitle: Takeaways
+---
+
+# Closing and Takeaways
+
+--- 
+section: language-representations
+sectionTitle: Language
+---
+
+# Takeaway: We Navigate the World through Representations
+
+<div class="mt-8 grid grid-cols-3 gap-5">
+  <div v-click class="rounded-xl border p-5">
+    <div class="text-4xl mb-3">👁️</div>
+    <h3>Biological</h3>
+    <p class="text-gray-600">
+      Perception selects and transforms reality into signals we can act on.
+    </p>
+  </div>
+
+  <div v-click class="rounded-xl border p-5">
+    <div class="text-4xl mb-3">🗺️</div>
+    <h3>Engineered</h3>
+    <p class="text-gray-600">
+      Maps, coordinates, images, diagrams, and numbers make selected structure visible.
+    </p>
+  </div>
+
+  <div v-click class="rounded-xl border p-5">
+    <div class="text-4xl mb-3">🧠</div>
+    <h3>Learned</h3>
+    <p class="text-gray-600">
+      Neural networks learn representations that make patterns useful for prediction.
+    </p>
+  </div>
+</div>
+
+<blockquote v-click class="blockquote1 mt-8">
+  A representation is a useful reduction of reality:
+  it preserves what matters for a task and hides what does not.
+</blockquote>
+
+---
+section: language-representations
+sectionTitle: Language
+---
+
+# Choosing or Learning Representations
+
+<div class="grid grid-cols-2 gap-6 mt-8">
+
+<div v-click="1" class="p-4 rounded-xl border shadow-sm flex min-h-[300px] flex-col">
+<h3>Designed representations</h3>
+
+<p class="mt-2 text-sm leading-snug text-gray-600">
+We choose structures that make operations easier.
+</p>
+
+<div class="flex flex-1 items-center justify-center mt-6">
+  <img
+    src="./figures/gis.png"
+    class="w-full max-h-40 object-contain"
+    alt="Geodatabase representation"
+  />
+</div>
+</div>
+
+<div v-click="2" class="p-4 rounded-xl border shadow-sm flex min-h-[300px] flex-col">
+<h3>Learned representations</h3>
+
+<p class="mt-2 text-sm leading-snug text-gray-600">
+We train models to discover useful structure.
+</p>
+
+<div class="flex flex-1 items-center justify-center mt-6">
+  <img
+    src="./figures/neuralgeorepresentation.svg"
+    class="w-full max-h-40 object-contain"
+    alt="Neural georepresentation"
+  />
+</div>
+</div>
+
+</div>
+
+<blockquote v-click="3" class="blockquote1 text-center">
+This course focuses on learning representations. 
+</blockquote>
 
 ---
 layout: bonn-cover
