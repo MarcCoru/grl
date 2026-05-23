@@ -25,75 +25,6 @@ Welcome to the first lecture on geospatial representation learning.
 -->
 
 ---
-section: representations
-sectionTitle: Representations
----
-
-# Lecture Outline
-
-<div class="grid grid-cols-4 gap-4 mt-8">
-
-<div class="p-4 rounded-xl border box-card box-1">
-<h3>Representations</h3>
-<img
-  src="./figures/apple_image_world.jpg"
-  class="mt-3 h-[118px] w-full object-contain rounded"
-  alt="An image of an apple"
-/>
-<div class="box-body">What are representations?</div>
-</div>
-
-<div class="p-4 rounded-xl border box-card box-2" v-click>
-<h3>Visual Representations</h3>
-<img
-  src="./figures/representations/representations_0004_03_vision.png"
-  class="mt-3 h-[118px] w-full object-contain rounded"
-  alt="Human vision representation layer"
-/>
-<div class="box-body">How vision encodes the world</div>
-</div>
-
-<div class="p-4 rounded-xl border box-card box-3" v-click>
-<h3>Language Representations</h3>
-<img
-  src="./figures/apple-language.png"
-  class="mt-3 h-[118px] w-full object-contain rounded"
-  alt="Language representation summary"
-/>
-<div class="box-body">How text becomes meaning</div>
-</div>
-
-<div class="p-4 rounded-xl border box-card box-4" v-click>
-<h3>Geospatial Representations</h3>
-<img
-  src="./figures/mentalmap.jpeg"
-  class="mt-3 h-[118px] w-full object-contain rounded"
-  alt="Mental map illustration"
-/>
-<div class="box-body">How places carry spatial meaning</div>
-</div>
-
-</div>
-
-<div class="slide-citation">
-  <a href="https://www.sueddeutsche.de/muenchen/mental-maps-die-stadt-in-meinem-kopf-1.3087218" target="_blank" rel="noopener noreferrer">
-    Die Stadt in meinem Kopf. (2016). <em>Süddeutsche Zeitung</em>.
-  </a>
-</div>
-
-<!--
-We will cover four sections:
-
-First, we will talk about representations in general. We will look at how we perceive the world, how we encode objects, and how representations carry meaning.
-[click]
-Second, we focus on visual representations. We will ask how vision encodes the world and why useful visual representations depend on the task.
-[click]
-Third, we look at language representations. We will move from text encodings to tokens, embeddings, and language models.
-[click] 
-Finally, we focus on geospatial representations. We will ask how places carry meaning beyond coordinates and how this motivates geospatial representation learning.
--->
-
----
 layout: bonn-section
 sectionColor: "#00457c"
 section: representations
@@ -180,7 +111,7 @@ sectionTitle: Representations
 
   <div class="flex h-[310px] flex-col gap-3">
     <div class="h-1/2">
-      <blockquote v-click="5" class="blockquote3 !m-0 flex h-full items-center text-[1.05rem] leading-snug">
+      <blockquote v-click="4" class="blockquote3 !m-0 flex h-full items-center text-[1.05rem] leading-snug">
         The same object can be encoded in many ways.
         A good encoding representation makes useful structure visible and computation easier.
       </blockquote>
@@ -211,7 +142,7 @@ section: representations
 sectionTitle: Representations
 ---
 
-# Choosing a Encoding Representations Matters
+# Choosing Right Encoding Representations
 
 ## Examples
 
@@ -267,6 +198,75 @@ What is the result of this addition in Roman numerals?
 It is much easier to do math with Arabic numerals. And the shift from Roman numerals to Arabic numerals took roughly 300 to 600 years in the Western world. That gives us a sense of how hard it can be to move to a better but unfamiliar representation.
 [click]
 Similarly, coordinates are great for databases, but they are hard to read. Place descriptions are easier for people to understand, but they can be ambiguous.
+-->
+
+---
+section: representations
+sectionTitle: Representations
+---
+
+# Lecture Outline
+
+<div class="grid grid-cols-4 gap-4 mt-8">
+
+<div class="p-4 rounded-xl border box-card box-1">
+<h3>Representations</h3>
+<img
+  src="./figures/apple_image_world.jpg"
+  class="mt-3 h-[118px] w-full object-contain rounded"
+  alt="An image of an apple"
+/>
+<div class="box-body">What are representations?</div>
+</div>
+
+<div class="p-4 rounded-xl border box-card box-2" v-click>
+<h3>Vision</h3>
+<img
+  src="./figures/representations.png"
+  class="mt-3 h-[118px] w-full object-contain rounded"
+  alt="Human vision representation layer"
+/>
+<div class="box-body">How vision encodes the world</div>
+</div>
+
+<div class="p-4 rounded-xl border box-card box-3" v-click>
+<h3>Language</h3>
+<img
+  src="./figures/apple-language.png"
+  class="mt-3 h-[118px] w-full object-contain rounded"
+  alt="Language representation summary"
+/>
+<div class="box-body">How text becomes meaning</div>
+</div>
+
+<div class="p-4 rounded-xl border box-card box-4" v-click>
+<h3>Spatial</h3>
+<img
+  src="./figures/mentalmap.jpeg"
+  class="mt-3 h-[118px] w-full object-contain rounded"
+  alt="Mental map illustration"
+/>
+<div class="box-body">How places carry spatial meaning</div>
+</div>
+
+</div>
+
+<div class="slide-citation">
+  <a href="https://www.sueddeutsche.de/muenchen/mental-maps-die-stadt-in-meinem-kopf-1.3087218" target="_blank" rel="noopener noreferrer">
+    Die Stadt in meinem Kopf. (2016). <em>Süddeutsche Zeitung</em>.
+  </a>
+</div>
+
+<!--
+We will cover four sections:
+
+First, we will talk about representations in general. We will look at how we perceive the world, how we encode objects, and how representations carry meaning.
+[click]
+Second, we focus on visual representations. We will ask how vision encodes the world and why useful visual representations depend on the task.
+[click]
+Third, we look at language representations. We will move from text encodings to tokens, embeddings, and language models.
+[click] 
+Finally, we focus on geospatial representations. We will ask how places carry meaning beyond coordinates and how this motivates geospatial representation learning.
 -->
 
 ---
@@ -604,11 +604,45 @@ So far, we have asked how we can represent an object, like an apple.
 -->
 
 ---
+layout: bonn-two-cols-header
+section: Representations of our World
+sectionTitle: Representations of our World
+---
+
+# Excurse: Dimensionality Reduction
+
+We often need to visualize high-dimensional data on a lower-dimensional space, as here with 3D data on a 2D screen.
+
+::left::
+
+<div class="m-0">
+
+**Principal Component Analysis (PCA)** linearly rotates high-dimensional data points so that a 2D projection best captures the variance (i.e., spread) of the data
+
+<PcaEmbeddingDemo />
+
+</div>
+
+::right::
+
+<div v-click class="m-0">
+
+**t-distributed Stochastic Neighborhood Embedding (t-SNE)** moves data points onto a 2D plane and tries to preserve the local neighborhood relation between points.
+
+<TsneEmbeddingDemo />
+
+</div>
+
+---
+layout: bonn-two-cols-header
+columns: minmax(0, 1.7fr) minmax(0, .8fr)
 section: visual-representations
 sectionTitle: Vision
 ---
 
-# Feature Representations in Neural Networks (LeNet-5, 2000)
+# Feature Representations in LeNet (2000)
+
+::left::
 
 <div class="mt-5 flex justify-center">
   <img
@@ -618,6 +652,112 @@ sectionTitle: Vision
   />
 </div>
 
+::right::
+
+<div class="mt-5 flex flex-col gap-3">
+  
+  <img
+    src="./figures/MNIST_dataset_example.png"
+    class="h-[125px] w-full object-contain"
+    alt="Sample handwritten digits from the MNIST dataset"
+  />
+  
+  <blockquote>
+    Convolutional Neural Networks encode more high-level features in deeper layers, as shown in the t-SNE where where digit images are increasingly well separated on deeper layers
+  </blockquote>
+</div>
+
+---
+layout: bonn-two-cols-header
+section: visual-representations
+sectionTitle: Vision
+---
+
+# Supervised Learning: From Labels to Loss
+
+::left::
+
+### Learning from labeled images
+
+- **Input:** a 28×28 image of a handwritten digit
+- **Known truth:** the human-provided label `7`
+- **Prediction:** probabilities over the ten digit classes
+- **Learning:** iteratively adjust the model to minimize the prediction error
+- **Goal:** make the probability for the true label `7` as high as possible
+
+`image pixels → CNN representation → class probabilities → label`
+
+> How do we measure whether the prediction is correct or incorrect?
+
+::right::
+
+### Classification example: Cross-Entropy Loss
+
+$$
+\mathcal{L}_{CE}(y,\hat{y}) = - \sum_{c=1}^{C} y_c \log(\hat{y}_c)
+$$
+
+For a one-hot target label:
+
+$$
+\mathcal{L}_{CE} = -\log(\hat{y}_{\text{correct}})
+$$
+
+Correct class: `7`
+
+- If `p(7) = 0.90` → low loss
+- If `p(7) = 0.10` → high loss
+
+> Cross entropy rewards high probability on the correct class and penalizes confidence in wrong classes.
+
+---
+layout: bonn-two-cols-header
+section: visual-representations
+sectionTitle: Vision
+---
+
+# Self-supervised Learning
+
+::left::
+
+### Contrastive Learning
+
+Identify the corresponding object among two different views of the same object.
+
+<img
+  src="./figures/swav-contrastive-learning.gif"
+  class="mt-3 h-[245px] w-full object-contain rounded-xl"
+  alt="SWAV contrastive cluster assignment animation"
+/>
+
+<div class="slide-citation">
+  Caron, M., Misra, I., Mairal, J., Goyal, P., Bojanowski, P., & Joulin, A. (2020).
+  <a href="https://github.com/facebookresearch/swav" target="_blank" rel="noopener noreferrer">
+    Unsupervised Learning of Visual Features by Contrasting Cluster Assignments
+  </a>.
+  NeurIPS. Code: <a href="https://github.com/facebookresearch/swav" target="_blank" rel="noopener noreferrer">facebookresearch/swav</a>.
+</div>
+
+::right::
+
+### Masked Autoencoding
+
+Train the model to correctly inpaint a masked portion of an image.
+
+<img
+  src="./figures/MAE.png"
+  class="mt-3 h-[245px] w-full object-contain rounded-xl"
+  alt="Masked autoencoder training pipeline"
+/>
+
+<div class="slide-citation">
+  He, K., Chen, X., Xie, S., Li, Y., Dollár, P., & Girshick, R. (2022).
+  <a href="https://openaccess.thecvf.com/content/CVPR2022/papers/He_Masked_Autoencoders_Are_Scalable_Vision_Learners_CVPR_2022_paper.pdf" target="_blank" rel="noopener noreferrer">
+    Masked autoencoders are scalable vision learners
+  </a>.
+  CVPR, 16000-16009.
+</div>
+
 ---
 section: visual-representations
 sectionTitle: Vision
@@ -625,22 +765,12 @@ sectionTitle: Vision
 
 # High-level Visual Features (Dinov3, 2025)
 
-<div class="mt-6 grid grid-cols-[minmax(0,0.5fr)_minmax(0,0.5fr)] gap-8 items-center">
-  <div class="flex min-h-[310px] justify-center">
-    <img
-      src="./figures/cosine_similarity.png"
-      class="h-[310px] w-full object-contain rounded-xl"
-      alt="Cosine similarity between feature representations"
-    />
-  </div>
-
-  <div class="flex justify-center">
-    <img
-      src="./figures/dinov3_demo.gif"
-      class="h-[330px] w-full object-contain rounded-xl"
-      alt="DINOv3 interactive patch cosine similarity animation"
-    />
-  </div>
+<div class="mt-6 flex justify-center">
+  <img
+    src="./figures/dinov3_demo.gif"
+    class="h-[315px] w-full max-w-[800px] object-contain rounded-xl"
+    alt="DINOv3 interactive patch cosine similarity animation"
+  />
 </div>
 
 <div class="slide-citation">
@@ -676,17 +806,6 @@ sectionTitle: Vision
     Try the Segment Anything Model (SAM) 2 demo
   </a>
 </div>
-
----
-layout: bonn-section
-sectionColor: "#6f2d7f"
-section: language-representations
-sectionTitle: Language
----
-
-# Language Representations
-
-<img src="./figures/apple-language.png" alt="Language representation summary" />
 
 ---
 section: language-representations
@@ -726,6 +845,17 @@ When we describe an apple, a city, or a landscape in words, we create a symbolic
 
 This gives us the path from character encodings to tokenization, embeddings, and language models.
 -->
+
+---
+layout: bonn-section
+sectionColor: "#6f2d7f"
+section: language-representations
+sectionTitle: Language
+---
+
+# Language Representations
+
+<img src="./figures/apple-language.png" alt="Language representation summary" />
 
 ---
 section: language-representations
@@ -1180,6 +1310,12 @@ sectionTitle: Language
 
   <div class="min-w-0">
     <AutoregressiveNextTokenDemo />
+    <div class="mt-2 rounded-xl border-2 p-3 text-blue-800" style="border-color: var(--grl-data-green); background: color-mix(in srgb, var(--grl-data-green) 7%, white);">
+      <h3>Training signal</h3>
+      <p class="mt-0 text-sm leading-snug text-gray-700">
+        Models are trained with superised learning to minimize cross-entropy between predicted token probabilities and the actual next token.
+      </p>
+    </div>
   </div>
 </div>
 
@@ -1685,6 +1821,12 @@ sectionTitle: Geospatial
 
 </div>
 
+---
+section: geospatial-representations
+sectionTitle: Geospatial
+---
+
+# Geospatial knowledge informs many Environmental and Socio-economical Problems
 
 ---
 section: geospatial-representations

@@ -265,6 +265,16 @@
   line-height: 1.25;
 }
 
+.bonn-two-cols-column .slide-citation {
+  position: static;
+  right: auto;
+  bottom: auto;
+  left: auto;
+  z-index: auto;
+  margin-top: .45rem;
+  font-size: .5rem;
+}
+
 .slide-citation a {
   color: var(--bonn-blue);
   font-weight: 700;
