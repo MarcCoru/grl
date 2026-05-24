@@ -1548,6 +1548,47 @@ We infer location from many weak cues.
 We do not recognize places from one signal. We combine many imperfect signals into a coherent spatial intuition.
 </blockquote>
 
+
+---
+layout: bonn-two-cols-header
+section: geospatial-representations
+sectionTitle: Geospatial
+---
+
+# Spatial Representations for Earth and Society
+
+> Modern geospatial AI aims to learn representations of our planet across space, time, scale, and modality.
+
+::left::
+
+### 🌍 Environmental Systems
+
+- 🌲 Deforestation and forest degradation
+- 🌡️ Climate change and global warming
+- 🌊 Flooding and sea level rise
+- 🏜️ Desertification and drought monitoring
+- 🧊 Glacier retreat and polar ice loss
+- 🌾 Agriculture and crop monitoring
+- 🐟 Marine ecosystems and coastal change
+- 🗑️ Environmental pollution and plastic waste
+- 🔥 Wildfire detection and risk prediction
+- 🐘 Biodiversity and species distribution
+
+::right::
+
+### 🏙️ Societal & Human Systems
+
+- 🏗️ Urbanization and city growth
+- 🚗 Navigation and route planning
+- 🚦 Traffic and mobility analysis
+- 🚑 Disaster response and humanitarian aid
+- 🛰️ Infrastructure and construction monitoring
+- ⚡ Energy systems and resource management
+- 🏠 Population density and settlement mapping
+- 🌍 Migration and human mobility
+- 🛡️ Security and border monitoring
+- 📦 Logistics and supply chain optimization
+
 ---
 section: geospatial-representations
 sectionTitle: Geospatial
@@ -1792,32 +1833,89 @@ sectionTitle: Geospatial
 </div>
 
 ---
+layout: bonn-two-cols-header
 section: geospatial-representations
 sectionTitle: Geospatial
 ---
 
-# Geology: Where can we find this Rock?
+# Takeaway: We learn our spatial environment
 
-<div class="grid grid-cols-[minmax(0,1fr)_220px] gap-8 mt-5 items-center">
+::left::
 
-<div class="flex justify-center">
-  <img
-    src="./geoguessr.svg"
-    class="w-full h-[340px] object-contain"
-    alt="GeoGuessr coordinate reasoning illustration"
-  />
+Everybody has an intuitive spatial mental representation of the world.
+
+<div class="mt-6 flex h-[300px] items-center justify-center">
+
+![Mental map illustration](./figures/mentalmap.jpeg){class="max-h-full w-full object-contain rounded-xl"}
+
 </div>
 
-<div class="flex justify-center" v-click>
+::right::
+
+Some people can learn to become extremely good at mentally mapping the world.
+
+<div class="mt-6 flex h-[300px] items-center justify-center">
+
+<iframe
+  v-click
+  class="h-[270px] aspect-[9/16] rounded-xl shadow"
+  src="https://www.youtube.com/embed/OV6SYabHM_w?rel=0&modestbranding=1"
+  title="GeoGuessr example"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen>
+</iframe>
+
+</div>
+
+---
+section: geospatial-representations
+sectionTitle: Geospatial
+---
+
+# Data of our Spatial Environment
+
+<div class="grid grid-cols-3 gap-5 mt-7 items-start">
+
+  <div>
+
+  ### Virtual Reconstructions
+
+<img
+  src="./figures/poppelsdorferschloss.png"
+  class="mt-4 h-[250px] w-full object-contain rounded-xl"
+  alt="Digital twin of Poppelsdorfer Schloss"
+/>
+
+  </div>
+
+  <div>
+
+  ### Dense Dynamic Measurements
+
   <iframe
-    class="h-[340px] aspect-[9/16] rounded-xl shadow"
-    src="https://www.youtube.com/embed/OV6SYabHM_w?rel=0&modestbranding=1"
-    title="GeoGuessr example"
+    class="mt-4 h-[250px] w-full rounded-xl shadow"
+    src="https://www.youtube.com/embed/lF_rHnZ7yo4?rel=0&modestbranding=1"
+    title="Earth observation sensors video"
     frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
     allowfullscreen>
   </iframe>
-</div>
+
+  </div>
+
+  <div>
+
+  ### Geospatial data layers
+
+  <img
+    src="./figures/gis.png"
+    class="mt-4 h-[250px] w-full object-contain rounded-xl"
+    alt="Geospatial data layers"
+  />
+
+  </div>
+
 
 </div>
 
@@ -1826,7 +1924,84 @@ section: geospatial-representations
 sectionTitle: Geospatial
 ---
 
-# Geospatial knowledge informs many Environmental and Socio-economical Problems
+# Geodata are Data Tensors
+
+<div class="grid grid-cols-2 gap-8 mt-8 items-center">
+
+<div>
+
+![Sentinel-2 pixels as geodata tensor](./figures/embedding_space_figure/Sentinel-2pixels.svg){class="h-[330px] w-full object-contain"}
+
+</div>
+
+<div>
+
+### Examples of different data tensors
+
+![Examples of different data tensors](./figures/embedding_space_figure/Tensors.svg){class="mt-4 h-[300px] w-full object-contain"}
+
+</div>
+
+</div>
+
+---
+layout: bonn-two-cols-header
+section: geospatial-representations
+sectionTitle: Geospatial
+---
+
+# Heterogeneous Datasets in Geodatabases
+
+::left::
+
+### Geodata is heterogeneous
+
+![Heterogeneous geodata sources](./figures/geodatasources.svg){class="mt-5 h-[330px] w-full object-contain"}
+
+::right::
+
+### Implementation examples
+
+- **Spatial database:** [PostGIS](https://postgis.net/documentation/getting_started/) extends PostgreSQL with spatial types, indexes, and functions.
+- **Geolocated raster:** [GeoTIFF](https://www.ogc.org/publications/standard/geotiff/) stores georeferenced imagery in TIFF files.
+- **Multidimensional arrays:** [NetCDF](https://docs.unidata.ucar.edu/netcdf/) stores scientific data across dimensions such as time, depth, latitude, and longitude.
+
+Different sources use different schemas, coordinate systems, resolutions, timestamps, and file or database abstractions.
+
+---
+layout: bonn-two-cols-header
+section: geospatial-representations
+sectionTitle: Geospatial
+---
+
+# Location and Coordinates join all Geodata
+
+::left::
+
+<div class="flex h-[390px] items-center justify-center">
+
+<img
+  src="./figures/coordinates.svg"
+  class="max-h-[340px] w-full object-contain"
+  alt="Longitude, latitude, elevation, and time coordinates"
+/>
+
+</div>
+
+::right::
+
+<div class="flex h-[390px] flex-col justify-center">
+
+### Any place on Earth can be represented by coordinates
+
+- **Longitude**
+- **Latitude**
+- **Elevation**
+- **Time**
+
+Coordinates join heterogeneous geodata sources together because they reference the same place and time.
+
+</div>
 
 ---
 section: geospatial-representations
